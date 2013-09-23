@@ -48,36 +48,6 @@ public class Group extends CoreResource{
         this.members = builder.members;
     }
 
-    public static class Builder extends CoreResource.Builder{
-
-        private String displayName;
-        private Set<MultiValuedAttribute> members = new HashSet<>();
-
-        public Builder(){}
-
-        public Builder(Group group) {
-            id = group.getId();
-            meta = group.getMeta();
-            externalId = group.getExternalId();
-            displayName = group.displayName;
-            members = group.members;
-        }
-
-        public Builder setDisplayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-        public Builder setMembers(Set<MultiValuedAttribute> members) {
-            this.members = members;
-            return this;
-        }
-
-        public Group build(){
-            return new Group(this);
-        }
-    }
-
     /**
      * Gets the value of the displayName property.
      *
@@ -92,6 +62,36 @@ public class Group extends CoreResource{
 
     public Set<MultiValuedAttribute> getMembers() {
         return members;
+    }
+    
+    public static class Builder extends CoreResource.Builder{
+
+        private String displayName;
+        private Set<MultiValuedAttribute> members = new HashSet<>();
+
+        public Builder(){}
+
+        public Builder(String displayName) {
+        	this.displayName = displayName;
+        }
+        
+        public Builder(Group group) {
+            id = group.getId();
+            meta = group.getMeta();
+            externalId = group.getExternalId();
+            displayName = group.displayName;
+            members = group.members;
+        }
+
+        public Builder setMembers(Set<MultiValuedAttribute> members) {
+            this.members = members;
+            return this;
+        }
+
+        @SuppressWarnings("unchecked")
+		public Group build(){
+            return new Group(this);
+        }
     }
 
 }
