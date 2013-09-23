@@ -24,12 +24,13 @@
 package org.osiam.resources.scim;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.osiam.resources.helper.AddressTypeSerializer;
 
 /**
  * Java class for address complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Address extends MultiValuedAttribute {
+public class Address {
 
     private String formatted;
     private String streetAddress;
@@ -37,19 +38,21 @@ public class Address extends MultiValuedAttribute {
     private String region;
     private String postalCode;
     private String country;
+    private String operation;
+    private Type type;
 
     public Address() {
     }
 
     private Address(Builder builder) {
-        super(builder);
         this.formatted = builder.formatted;
         this.streetAddress = builder.streetAddress;
         this.locality = builder.locality;
         this.region = builder.region;
         this.postalCode = builder.postalCode;
         this.country = builder.country;
-
+        this.operation = builder.operation;
+        this.type = builder.type;
     }
 
     /**
@@ -112,14 +115,54 @@ public class Address extends MultiValuedAttribute {
         return country;
     }
 
-    public static class Builder extends MultiValuedAttribute.Builder {
+    /**
+     * Gets the value of the operation property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getOperation() {
+        return operation;
+    }
+    
+    /**
+     * Gets the value of the type property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public Type getType() {
+        return type;
+    }
+    
+    public static class Builder {
+
         private String formatted;
         private String streetAddress;
         private String locality;
         private String region;
         private String postalCode;
         private String country;
+        private String operation;
+        private Type type;
 
+        public Builder(){
+        }
+        
+        public Builder(Address oldAddress){
+        	this.formatted = oldAddress.formatted;
+        	this.streetAddress = oldAddress.streetAddress;
+        	this.locality = oldAddress.locality;
+        	this.region = oldAddress.region;
+        	this.postalCode = oldAddress.postalCode;
+        	this.country = oldAddress.country;
+        	this.operation = oldAddress.operation;
+        	this.type = oldAddress.type;
+        }
         public Builder setFormatted(String formatted) {
             this.formatted = formatted;
             return this;
@@ -150,11 +193,33 @@ public class Address extends MultiValuedAttribute {
             return this;
         }
 
-        @Override
+        public Builder setOperation(String operation) {
+            this.operation = operation;
+            return this;
+        }
+        
+        public Builder setType(Type type) {
+            this.type = type;
+            return this;
+        }
+
         public Address build() {
             return new Address(this);
         }
 
-
+    }
+    
+    @JsonSerialize(using = AddressTypeSerializer.class)
+    public enum Type{
+    	WORK ("work"),
+    	HOME ("home"),
+    	OTHER ("other")
+    	;
+    	
+    	String value = "";
+    	
+    	Type(String value){
+    		this.value = value;
+    	}
     }
 }
