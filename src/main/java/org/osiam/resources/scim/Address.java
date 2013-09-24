@@ -24,7 +24,7 @@
 package org.osiam.resources.scim;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.osiam.resources.helper.AddressTypeSerializer;
+import org.osiam.resources.type.AddressType;
 
 /**
  * Java class for address complex type.
@@ -39,7 +39,7 @@ public class Address {
     private String postalCode;
     private String country;
     private String operation;
-    private Type type;
+    private AddressType type;
 
     public Address() {
     }
@@ -135,7 +135,7 @@ public class Address {
      *     {@link String }
      *
      */
-    public Type getType() {
+    public AddressType getType() {
         return type;
     }
     
@@ -148,7 +148,7 @@ public class Address {
         private String postalCode;
         private String country;
         private String operation;
-        private Type type;
+        private AddressType type;
 
         public Builder(){
         }
@@ -198,7 +198,7 @@ public class Address {
             return this;
         }
         
-        public Builder setType(Type type) {
+        public Builder setType(AddressType type) {
             this.type = type;
             return this;
         }
@@ -209,17 +209,4 @@ public class Address {
 
     }
     
-    @JsonSerialize(using = AddressTypeSerializer.class)
-    public enum Type{
-    	WORK ("work"),
-    	HOME ("home"),
-    	OTHER ("other")
-    	;
-    	
-    	String value = "";
-    	
-    	Type(String value){
-    		this.value = value;
-    	}
-    }
 }
