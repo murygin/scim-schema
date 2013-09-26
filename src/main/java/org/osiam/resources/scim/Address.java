@@ -132,13 +132,16 @@ public class Address {
      *
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link AddressType }
      *
      */
     public AddressType getType() {
         return type;
     }
     
+    /**
+     * The Builder class is used to construct instances of the {@link Address}
+     */
     public static class Builder {
 
         private String formatted;
@@ -153,6 +156,10 @@ public class Address {
         public Builder(){
         }
         
+        /**
+		 * copies all attributes to the new Builder to be able to change one attribute
+		 * @param old old {@link Address} to be changed or copied
+		 */
         public Builder(Address oldAddress){
         	this.formatted = oldAddress.formatted;
         	this.streetAddress = oldAddress.streetAddress;
@@ -168,45 +175,84 @@ public class Address {
             return this;
         }
 
+        /**
+         * sets the attribute to the builder
+         * @param streetAddress the wanted streetAddress
+         * @return the builder itself
+         */
         public Builder setStreetAddress(String streetAddress) {
             this.streetAddress = streetAddress;
             return this;
         }
 
+        /**
+         * sets the attribute to the builder
+         * @param locality the wanted locality
+         * @return the builder itself
+         */
         public Builder setLocality(String locality) {
             this.locality = locality;
             return this;
         }
 
+        /**
+         * sets the attribute to the builder
+         * @param region the wanted region
+         * @return the builder itself
+         */
         public Builder setRegion(String region) {
             this.region = region;
             return this;
         }
 
+        /**
+         * sets the attribute to the builder
+         * @param postalCode the wanted postalCode
+         * @return the builder itself
+         */
         public Builder setPostalCode(String postalCode) {
             this.postalCode = postalCode;
             return this;
         }
 
+        /**
+         * sets the attribute to the builder
+         * @param country the wanted country
+         * @return the builder itself
+         */
         public Builder setCountry(String country) {
             this.country = country;
             return this;
         }
 
+        /**
+         * sets the attribute to the builder
+         * @param operation the wanted operation
+         * @return the builder itself
+         */
         public Builder setOperation(String operation) {
             this.operation = operation;
             return this;
         }
         
+        /**
+         * sets the attribute to the builder
+         * @param type the wanted type
+         * @return the builder itself
+         */
         public Builder setType(AddressType type) {
             this.type = type;
             return this;
         }
 
+        /**
+         * Construct the {@link Address} with the parameters passed to this builder.
+         *
+         * @return An {@link Address} configured accordingly
+         */
         public Address build() {
             return new Address(this);
         }
-
     }
     
 }

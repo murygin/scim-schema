@@ -32,18 +32,17 @@ public abstract class CoreResource  extends Resource{
 
     public CoreResource() {}
 
-
     public CoreResource(Builder builder) {
         super(builder);
         this.externalId = builder.externalId;
     }
 
-    public abstract static class Builder extends Resource.Builder {
+    public abstract static class Builder<T> extends Resource.Builder<T> {
         protected String externalId; // NOSONAR - fields are needed in child classes
 
-        public Builder setExternalId(String externalId) {
+        public T setExternalId(String externalId) {
             this.externalId = externalId;
-            return this;
+            return builder;
         }
     }
 

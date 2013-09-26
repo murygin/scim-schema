@@ -23,11 +23,10 @@
 
 package org.osiam.resources.scim;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 
 /**
@@ -50,15 +49,15 @@ public class User extends CoreResource {
     private String timezone;
     private Boolean active;
     private String password;
-    private List<MultiValuedAttribute> emails;
-    private List<MultiValuedAttribute> phoneNumbers;
-    private List<MultiValuedAttribute> ims;
-    private List<MultiValuedAttribute> photos;
+    private List<Email> emails;
+    private List<PhoneNumber> phoneNumbers;
+    private List<Ims> ims;
+    private List<Photo> photos;
     private List<Address> addresses;
-    private List<MultiValuedAttribute> groups;
-    private List<MultiValuedAttribute> entitlements;
-    private List<MultiValuedAttribute> roles;
-    private List<MultiValuedAttribute> x509Certificates;
+    private List<GroupRef> groups;
+    private List<Entitlement> entitlements;
+    private List<Role> roles;
+    private List<X509Certificate> x509Certificates;
 
     public User() {
     }
@@ -209,19 +208,19 @@ public class User extends CoreResource {
         return password;
     }
 
-    public List<MultiValuedAttribute> getEmails() {
+    public List<Email> getEmails() {
         return emails;
     }
 
-    public List<MultiValuedAttribute> getPhoneNumbers() {
+    public List<PhoneNumber> getPhoneNumbers() {
         return phoneNumbers;
     }
 
-    public List<MultiValuedAttribute> getIms() {
+    public List<Ims> getIms() {
         return ims;
     }
 
-    public List<MultiValuedAttribute> getPhotos() {
+    public List<Photo> getPhotos() {
         return photos;
     }
 
@@ -229,23 +228,26 @@ public class User extends CoreResource {
         return addresses;
     }
 
-    public List<MultiValuedAttribute> getGroups() {
+    public List<GroupRef> getGroups() {
         return groups;
     }
 
-    public List<MultiValuedAttribute> getEntitlements() {
+    public List<Entitlement> getEntitlements() {
         return entitlements;
     }
 
-    public List<MultiValuedAttribute> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public List<MultiValuedAttribute> getX509Certificates() {
+    public List<X509Certificate> getX509Certificates() {
         return x509Certificates;
     }
 
-    public static class Builder extends CoreResource.Builder {
+    /**
+     * The Builder class is used to construct instances of the {@link User}
+     */
+    public static class Builder extends CoreResource.Builder<User.Builder> {
         private final String userName;
         private String password;
         private Boolean active;
@@ -258,24 +260,26 @@ public class User extends CoreResource {
         private String nickName;
         private String displayName;
         private Name name;
-        private List<MultiValuedAttribute> emails = new ArrayList<>();
-        private List<MultiValuedAttribute> phoneNumbers = new ArrayList<>();
-        private List<MultiValuedAttribute> ims = new ArrayList<>();
-        private List<MultiValuedAttribute> photos = new ArrayList<>();
+        private List<Email> emails = new ArrayList<>();
+        private List<PhoneNumber> phoneNumbers = new ArrayList<>();
+        private List<Ims> ims = new ArrayList<>();
+        private List<Photo> photos = new ArrayList<>();
         private List<Address> addresses = new ArrayList<>();
-        private List<MultiValuedAttribute> groups = new ArrayList<>();
-        private List<MultiValuedAttribute> entitlements = new ArrayList<>();
-        private List<MultiValuedAttribute> roles = new ArrayList<>();
-        private List<MultiValuedAttribute> x509Certificates = new ArrayList<>();
+        private List<GroupRef> groups = new ArrayList<>();
+        private List<Entitlement> entitlements = new ArrayList<>();
+        private List<Role> roles = new ArrayList<>();
+        private List<X509Certificate> x509Certificates = new ArrayList<>();
 
 
         public Builder(String userName) {
             if (userName == null) { throw new IllegalArgumentException("userName must not be null."); }
             this.userName = userName;
+            setBuilder(this);
         }
 
         public Builder() {
             this.userName = null;
+            setBuilder(this);
         }
 
         /**
@@ -372,22 +376,22 @@ public class User extends CoreResource {
             return this;
         }
 
-        public Builder setEmails(List<MultiValuedAttribute> emails) {
+        public Builder setEmails(List<Email> emails) {
             this.emails = emails;
             return this;
         }
 
-        public Builder setPhoneNumbers(List<MultiValuedAttribute> phoneNumbers) {
+        public Builder setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
             this.phoneNumbers = phoneNumbers;
             return this;
         }
 
-        public Builder setIms(List<MultiValuedAttribute> ims) {
+        public Builder setIms(List<Ims> ims) {
             this.ims = ims;
             return this;
         }
 
-        public Builder setPhotos(List<MultiValuedAttribute> photos) {
+        public Builder setPhotos(List<Photo> photos) {
             this.photos = photos;
             return this;
         }
@@ -397,27 +401,31 @@ public class User extends CoreResource {
             return this;
         }
 
-        public Builder setGroups(List<MultiValuedAttribute> groups) {
+        public Builder setGroups(List<GroupRef> groups) {
             this.groups = groups;
             return this;
         }
 
-        public Builder setEntitlements(List<MultiValuedAttribute> entitlements) {
+        public Builder setEntitlements(List<Entitlement> entitlements) {
             this.entitlements = entitlements;
             return this;
         }
 
-        public Builder setRoles(List<MultiValuedAttribute> roles) {
+        public Builder setRoles(List<Role> roles) {
             this.roles = roles;
             return this;
         }
 
-        public Builder setX509Certificates(List<MultiValuedAttribute> x509Certificates) {
+        public Builder setX509Certificates(List<X509Certificate> x509Certificates) {
             this.x509Certificates = x509Certificates;
             return this;
         }
 
-        @Override
+        /**
+         * Construct the {@link User} with the parameters passed to this builder.
+         *
+         * @return An {@link User} configured accordingly
+         */
         public User build() {
             return new User(this);
         }

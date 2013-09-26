@@ -28,8 +28,7 @@ import spock.lang.Specification
 class MultiValuedAttributeTest extends Specification {
     def "should contain value, display, primary, type and operation"() {
         given:
-        def builder = new MultiValuedAttribute.Builder()
-                .setDisplay("display")
+        def builder = new Role.Builder()
                 .setOperation("op")
                 .setPrimary(true)
                 .setType("type")
@@ -38,7 +37,6 @@ class MultiValuedAttributeTest extends Specification {
         def mva = builder.build()
 
         then:
-        mva.display == builder.display
         mva.isPrimary() == builder.primary
         mva.value == builder.value
         mva.type == builder.type
@@ -47,7 +45,7 @@ class MultiValuedAttributeTest extends Specification {
 
     def "should contain an empty constructor for json"() {
         when:
-        def result = new MultiValuedAttribute()
+        def result = new Role()
         then:
         result
     }

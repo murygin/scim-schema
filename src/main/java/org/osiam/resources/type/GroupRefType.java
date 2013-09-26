@@ -19,26 +19,36 @@
  * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */ 
-package org.osiam.resources.helper;
+ */
+package org.osiam.resources.type;
 
-import java.io.IOException;
-
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.JsonSerializer;
-import org.codehaus.jackson.map.SerializerProvider;
-import org.osiam.resources.type.AddressType;
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.osiam.resources.helper.JsonGroupRefTypeDeserializer;
+import org.osiam.resources.helper.JsonGroupRefTypeSerializer;
 
 /**
- * used to serialize a {@link AddressType} enum into a JSon String 
+ * possible enums for the Address Type
  *
  */
-public class JsonAddressTypeSerializer extends JsonSerializer<AddressType> {
-
-	  @Override
-	  public void serialize(AddressType value, JsonGenerator generator, SerializerProvider provider) 
-			  throws IOException, JsonProcessingException {
-			  generator.writeString(value.name().toLowerCase());
-	  }
+@JsonSerialize (using = JsonGroupRefTypeSerializer.class)
+@JsonDeserialize (using = JsonGroupRefTypeDeserializer.class)
+public enum GroupRefType{
+	DIRECT ("direct"),
+	INDIRECT ("indirect")
+	;
+	
+	String value = "";
+	
+	GroupRefType(String value){
+		this.value = value;
+	}
+	
+	@Override
+	public String toString(){
+		return value;
+	}
+	public static AddressType fromString(String value){
+		return Enum.valueOf(AddressType.class, value.toUpperCase());
+	}
 }

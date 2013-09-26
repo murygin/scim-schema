@@ -23,10 +23,10 @@
 
 package org.osiam.resources.scim;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
 import java.util.HashSet;
 import java.util.Set;
+
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 
 /**
@@ -36,7 +36,7 @@ import java.util.Set;
 public class Group extends CoreResource{
 
     private String displayName;
-    private Set<MultiValuedAttribute> members;
+    private Set<Member> members;
 
     //JSON Serializing
     public Group(){}
@@ -60,21 +60,31 @@ public class Group extends CoreResource{
         return displayName;
     }
 
-    public Set<MultiValuedAttribute> getMembers() {
+    public Set<Member> getMembers() {
         return members;
     }
     
-    public static class Builder extends CoreResource.Builder{
+    /**
+     * The Builder class is used to construct instances of the {@link Group}
+     */
+    public static class Builder extends CoreResource.Builder<Group.Builder>{
 
         private String displayName;
-        private Set<MultiValuedAttribute> members = new HashSet<>();
+        private Set<Member> members = new HashSet<>();
 
-        public Builder(){}
+        public Builder(){
+        	setBuilder(this);
+        }
 
         public Builder(String displayName) {
         	this.displayName = displayName;
+        	setBuilder(this);
         }
-        
+
+        /**
+		 * copies all attributes to the new Builder to be able to change one attribute
+		 * @param old old {@link Group} to be changed or copied
+		 */
         public Builder(Group group) {
             id = group.getId();
             meta = group.getMeta();
@@ -83,12 +93,11 @@ public class Group extends CoreResource{
             members = group.members;
         }
 
-        public Builder setMembers(Set<MultiValuedAttribute> members) {
+        public Builder setMembers(Set<Member> members) {
             this.members = members;
             return this;
         }
 
-        @SuppressWarnings("unchecked")
 		public Group build(){
             return new Group(this);
         }

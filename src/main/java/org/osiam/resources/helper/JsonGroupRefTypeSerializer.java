@@ -28,16 +28,16 @@ import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.JsonSerializer;
 import org.codehaus.jackson.map.SerializerProvider;
-import org.osiam.resources.type.AddressType;
+import org.osiam.resources.type.GroupRefType;
 
 /**
- * used to serialize a {@link AddressType} enum into a JSon String 
+ * used to serialize a {@link GroupRefType} enum into a JSon String 
  *
  */
-public class JsonAddressTypeSerializer extends JsonSerializer<AddressType> {
+public class JsonGroupRefTypeSerializer extends JsonSerializer<GroupRefType> {
 
 	  @Override
-	  public void serialize(AddressType value, JsonGenerator generator, SerializerProvider provider) 
+	  public void serialize(GroupRefType value, JsonGenerator generator, SerializerProvider provider) 
 			  throws IOException, JsonProcessingException {
 			  generator.writeString(value.name().toLowerCase());
 	  }

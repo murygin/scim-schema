@@ -23,103 +23,23 @@
 
 package org.osiam.resources.scim;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+
+
 
 /**
  * Java class for multiValuedAttribute complex type.
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class MultiValuedAttribute {
+public abstract class MultiValuedAttribute extends BasicMultiValuedAttribute{
 
-    private Object value;
-    private String display;
-    private Boolean primary;
-    private String type;
-    private String operation;
+	private String type;
 
-    //JSON Serializing
-    public MultiValuedAttribute(){}
-
-    protected MultiValuedAttribute(Builder builder) {
-        this.value = builder.value;
-        this.display = builder.display;
-        this.primary = builder.primary;
-        this.type = builder.type;
-        this.operation = builder.operation;
+	protected MultiValuedAttribute() {
+		super();
     }
-
-    public static class Builder{
-
-        private Object value;
-        private String display;
-        private Boolean primary;
-        private String type;
-        private String operation;
-
-        public Builder setValue(Object value) {
-            this.value = value;
-            return this;
-        }
-
-        public Builder setDisplay(String display) {
-            this.display = display;
-            return this;
-        }
-
-        public Builder setPrimary(Boolean primary) {
-            this.primary = primary;
-            return this;
-        }
-
-        public Builder setType(String type) {
-            this.type = type;
-            return this;
-        }
-
-        public Builder setOperation(String operation) {
-            this.operation = operation;
-            return this;
-        }
-
-        public MultiValuedAttribute build(){
-            return new MultiValuedAttribute(this);
-        }
-    }
-
-    /**
-     * Gets the value of the value property.
-     *
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *
-     */
-    public Object getValue() {
-        return value;
-    }
-
-    /**
-     * Gets the value of the display property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getDisplay() {
-        return display;
-    }
-
-    /**
-     * Gets the value of the primary property.
-     *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
-     */
-    public Boolean isPrimary() {
-        return primary;
+	
+	protected MultiValuedAttribute(@SuppressWarnings("rawtypes") Builder builder) {
+		super(builder);
+		this.type = builder.type;
     }
 
     /**
@@ -132,18 +52,30 @@ public class MultiValuedAttribute {
      */
     public String getType() {
         return type;
-    }
+    }   
 
     /**
-     * Gets the value of the operation property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * The Builder class is used to construct instances of the {@link BasicMultiValuedAttribute}
      */
-    public String getOperation() {
-        return operation;
-    }
+    public static abstract class Builder<T> extends BasicMultiValuedAttribute.Builder<T>{
+  	
+    	protected String type;
 
+    	protected Builder(){    		
+    	}
+    	
+		/**
+		 * copies all attributes to the new Builder to be able to change one attribute
+		 * @param old old {@link MultiValuedAttribute} to be changed or copied
+		 */
+    	protected Builder(MultiValuedAttribute old){
+    		super(old);
+    		this.type = old.type;
+    	}
+    	
+        public T setType(String type) {
+            this.type = type;
+            return builder;
+        }
+    }
 }

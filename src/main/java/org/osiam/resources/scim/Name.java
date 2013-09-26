@@ -54,6 +54,9 @@ public class Name {
 
     }
 
+    /**
+     * The Builder class is used to construct instances of the {@link Name}
+     */
     public static class Builder {
         private String formatted;
         private String familyName;
@@ -62,6 +65,22 @@ public class Name {
         private String honorificPrefix;
         private String honorificSuffix;
 
+        public Builder(){
+        }
+        
+		/**
+		 * copies all attributes to the new Builder to be able to change one attribute
+		 * @param old old {@link Name} to be changed or copied
+		 */
+        public Builder(Name old){
+        	this.formatted = old.formatted;
+        	this.familyName = old.familyName;
+        	this.givenName = old.givenName;
+        	this.middleName = old.middleName;
+        	this.honorificPrefix = old.honorificPrefix;
+        	this.honorificSuffix = old.honorificSuffix;
+        }
+        
         public Builder setFormatted(String formatted) {
             this.formatted = formatted;
             return this;
@@ -92,6 +111,11 @@ public class Name {
             return this;
         }
 
+        /**
+         * Construct the {@link Name} with the parameters passed to this builder.
+         *
+         * @return An {@link Name} configured accordingly
+         */
         public Name build() {
             return new Name(this);
         }

@@ -24,21 +24,23 @@ package org.osiam.resources.helper;
 
 import java.io.IOException;
 
-import org.codehaus.jackson.JsonGenerator;
+import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.JsonSerializer;
-import org.codehaus.jackson.map.SerializerProvider;
-import org.osiam.resources.type.AddressType;
+import org.codehaus.jackson.map.DeserializationContext;
+import org.codehaus.jackson.map.JsonDeserializer;
+import org.osiam.resources.type.PhoneNumberType;
 
 /**
- * used to serialize a {@link AddressType} enum into a JSon String 
+ * used to deserialize JSon String to a {@link PhoneNumberType} enum
  *
  */
-public class JsonAddressTypeSerializer extends JsonSerializer<AddressType> {
+public class JsonPhoneNumberTypeDeserializer extends JsonDeserializer<PhoneNumberType> {
 
-	  @Override
-	  public void serialize(AddressType value, JsonGenerator generator, SerializerProvider provider) 
-			  throws IOException, JsonProcessingException {
-			  generator.writeString(value.name().toLowerCase());
-	  }
+    @Override
+    public PhoneNumberType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException, JsonProcessingException
+    {
+        final String jsonValue = parser.getText();
+        return PhoneNumberType.valueOf(jsonValue.toUpperCase());
+    }
+
 }

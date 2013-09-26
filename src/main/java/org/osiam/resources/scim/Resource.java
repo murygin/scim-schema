@@ -42,27 +42,33 @@ public abstract class Resource {
         this.schemas = builder.schemas;
     }
 
-    public abstract static class Builder {
+    /**
+     * The Builder class is used to construct instances of the {@link Resource}
+     */
+    public abstract static class Builder<T> {
         protected String id; // NOSONAR - fields are needed in child classes
         protected Meta meta; // NOSONAR - fields are needed in child classes
         protected Set<String> schemas = Constants.CORE_SCHEMAS; // NOSONAR - fields are needed in child classes
-
-        public Builder setSchemas(Set<String> schemas) {
+        protected T builder;
+        
+        protected void setBuilder(T self){
+        	this.builder = self;
+        }
+        
+        public T setSchemas(Set<String> schemas) {
             this.schemas = schemas;
-            return this;
+            return builder;
         }
 
-        public Builder setId(String id) {
+        public T setId(String id) {
             this.id = id;
-            return this;
+            return builder;
         }
 
-        public Builder setMeta(Meta meta) {
+        public T setMeta(Meta meta) {
             this.meta = meta;
-            return this;
+            return builder;
         }
-
-        public abstract <T> T build();
     }
 
     /**

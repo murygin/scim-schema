@@ -31,7 +31,7 @@ import org.codehaus.jackson.map.JsonDeserializer;
 import org.osiam.resources.type.AddressType;
 
 /**
- * used to deserialize JSon String to a AddressType enum
+ * used to deserialize JSon String to a {@link AddressType} enum
  *
  */
 public class JsonAddressTypeDeserializer extends JsonDeserializer<AddressType> {
@@ -40,7 +40,7 @@ public class JsonAddressTypeDeserializer extends JsonDeserializer<AddressType> {
     public AddressType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException, JsonProcessingException
     {
         final String jsonValue = parser.getText();
-        return AddressType.fromString(jsonValue);
+        return AddressType.valueOf(jsonValue.toUpperCase());
     }
 
 }

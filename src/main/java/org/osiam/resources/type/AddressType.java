@@ -27,13 +27,14 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.helper.JsonAddressTypeDeserializer;
 import org.osiam.resources.helper.JsonAddressTypeSerializer;
 
+
 /**
  * possible enums for the Address Type
  *
  */
-@JsonSerialize(using = JsonAddressTypeSerializer.class)
-@JsonDeserialize(using = JsonAddressTypeDeserializer.class)
-public enum AddressType{
+@JsonSerialize (using = JsonAddressTypeSerializer.class)
+@JsonDeserialize (using = JsonAddressTypeDeserializer.class)
+public enum AddressType {
 	WORK ("work"),
 	HOME ("home"),
 	OTHER ("other")
@@ -45,26 +46,10 @@ public enum AddressType{
 		this.value = value;
 	}
 	
-	public String toString(){
-		return value;
+	
+	public static AddressType fromString(String value){
+		return Enum.valueOf(AddressType.class, value.toUpperCase());
 	}
-	
-	/**
-	 * convert's the given non case sensitive String into one of the enum values
-	 * @param text one of the enum as String
-	 * @return a converted enum
-	 * @throws IllegalArgumentException in case the given String could not be converted
-	 */
-    public static AddressType fromString(String text) {
-	    if (text != null) {
-	      for (AddressType b : AddressType.values()) {
-	        if (text.equalsIgnoreCase(b.toString())) {
-	          return b;
-	        }
-	      }
-	    }
-	    throw new IllegalArgumentException("Could not convert the value '" 
-	    									+ text + "' to a AddressType enum.");
-    }
-	
+
+		
 }

@@ -29,7 +29,7 @@ class GroupTest extends Specification {
 
     def "should be able to generate a group"() {
         given:
-        def multiValueAttribute = new MultiValuedAttribute.Builder().build()
+        def multiValueAttribute = new GroupRef.Builder().build()
         def builder = new Group.Builder("display")
         .setMembers([multiValueAttribute] as Set)
 
@@ -45,7 +45,7 @@ class GroupTest extends Specification {
         given:
         def group = new Group.Builder("display").build()
         when:
-        group.members.add(new MultiValuedAttribute.Builder().build())
+        group.members.add(new GroupRef.Builder().build())
 
         then:
         group.members.size() == 1
@@ -56,7 +56,7 @@ class GroupTest extends Specification {
         def group = new Group.Builder("display").build()
 
         when:
-        group.members.add(new MultiValuedAttribute.Builder().build())
+        group.members.add(new GroupRef.Builder().build())
 
         then:
         group.members != null

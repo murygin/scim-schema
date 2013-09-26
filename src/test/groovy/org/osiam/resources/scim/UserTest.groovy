@@ -81,7 +81,9 @@ class UserTest extends Specification {
 
     def "should generate a user based on builder"() {
         given:
-        def multivalueAttribute = new MultiValuedAttribute.Builder().build()
+		def entitlement = new Entitlement.Builder().build()
+		def role = new Role.Builder().build()
+		def x509Cert = new X509Certificate.Builder().build()
 
         def builder = new User.Builder("test").setActive(true)
                 .setDisplayName("display")
@@ -94,9 +96,9 @@ class UserTest extends Specification {
                 .setTimezone("time")
                 .setTitle("title")
                 .setUserType("userType")
-                .setEntitlements([multivalueAttribute] as List)
-                .setRoles([multivalueAttribute] as List)
-                .setX509Certificates([multivalueAttribute] as List)
+                .setEntitlements([entitlement] as List)
+                .setRoles([role] as List)
+                .setX509Certificates([x509Cert] as List)
                 .setExternalId("externalid").setId("id").setMeta(new Meta.Builder().build())
         when:
         User user = builder.build()
@@ -195,7 +197,14 @@ class UserTest extends Specification {
     def "should copy lists from origin user"() {
         given:
         def address = new Address.Builder().build()
-        def generalAttribute = new MultiValuedAttribute.Builder().build()
+		def email = new Email.Builder().build()
+		def entitlement = new Entitlement.Builder().build()
+		def userGroup = new GroupRef.Builder().build()
+		def ims = new Ims.Builder().build()
+		def phonenumber = new PhoneNumber.Builder().build()
+		def photo = new Photo.Builder().build()
+		def role = new Role.Builder().build()
+		def x509Cert = new X509Certificate.Builder().build()
 
         User user = new User.Builder("test").setActive(true)
                 .setDisplayName("display")
@@ -212,27 +221,27 @@ class UserTest extends Specification {
                 .build()
 
         user.addresses.add(address)
-        user.emails.add(generalAttribute)
-        user.entitlements.add(generalAttribute)
-        user.groups.add(generalAttribute)
-        user.ims.add(generalAttribute)
-        user.phoneNumbers.add(generalAttribute)
-        user.photos.add(generalAttribute)
-        user.roles.add(generalAttribute)
-        user.x509Certificates.add(generalAttribute)
+        user.emails.add(email)
+        user.entitlements.add(entitlement)
+        user.groups.add(userGroup)
+        user.ims.add(ims)
+        user.phoneNumbers.add(phonenumber)
+        user.photos.add(photo)
+        user.roles.add(role)
+        user.x509Certificates.add(x509Cert)
 
         when:
         User clonedUser = User.Builder.generateForOutput(user)
         then:
         clonedUser.addresses.get(0) == address
-        clonedUser.emails.get(0) == generalAttribute
-        clonedUser.entitlements.get(0) == generalAttribute
-        clonedUser.groups.get(0) == generalAttribute
-        clonedUser.ims.get(0) == generalAttribute
-        clonedUser.phoneNumbers.get(0) == generalAttribute
-        clonedUser.photos.get(0) == generalAttribute
-        clonedUser.roles.get(0) == generalAttribute
-        clonedUser.x509Certificates.get(0) == generalAttribute
+        clonedUser.emails.get(0) == email
+        clonedUser.entitlements.get(0) == entitlement
+        clonedUser.groups.get(0) == userGroup
+        clonedUser.ims.get(0) == ims
+        clonedUser.phoneNumbers.get(0) == phonenumber
+        clonedUser.photos.get(0) == photo
+        clonedUser.roles.get(0) == role
+        clonedUser.x509Certificates.get(0) == x509Cert
 
     }
 
@@ -241,37 +250,44 @@ class UserTest extends Specification {
         given:
         def user = new User.Builder("test2").build()
         def address = new Address.Builder().build()
-        def generalAttribute = new MultiValuedAttribute.Builder().build()
+		def email = new Email.Builder().build()
+		def entitlement = new Entitlement.Builder().build()
+		def userGroup = new GroupRef.Builder().build()
+		def ims = new Ims.Builder().build()
+		def phonenumber = new PhoneNumber.Builder().build()
+		def photo = new Photo.Builder().build()
+		def role = new Role.Builder().build()
+		def x509Cert = new X509Certificate.Builder().build()
 
         when:
         user.addresses.add(address)
-        user.emails.add(generalAttribute)
-        user.entitlements.add(generalAttribute)
-        user.groups.add(generalAttribute)
-        user.ims.add(generalAttribute)
-        user.phoneNumbers.add(generalAttribute)
-        user.photos.add(generalAttribute)
-        user.roles.add(generalAttribute)
-        user.x509Certificates.add(generalAttribute)
+        user.emails.add(email)
+        user.entitlements.add(entitlement)
+        user.groups.add(userGroup)
+        user.ims.add(ims)
+        user.phoneNumbers.add(phonenumber)
+        user.photos.add(photo)
+        user.roles.add(role)
+        user.x509Certificates.add(x509Cert)
 
         and:
         user.addresses.get(0) == address
         and:
-        user.emails.get(0) == generalAttribute
+        user.emails.get(0) == email
         and:
-        user.entitlements.get(0) == generalAttribute
+        user.entitlements.get(0) == entitlement
         and:
-        user.groups.get(0) == generalAttribute
+        user.groups.get(0) == userGroup
         and:
-        user.ims.get(0) == generalAttribute
+        user.ims.get(0) == ims
         and:
-        user.phoneNumbers.get(0) == generalAttribute
+        user.phoneNumbers.get(0) == phonenumber
         and:
-        user.photos.get(0) == generalAttribute
+        user.photos.get(0) == photo
         and:
-        user.roles.get(0) == generalAttribute
+        user.roles.get(0) == role
         then:
-        user.x509Certificates.get(0) == generalAttribute
+        user.x509Certificates.get(0) == x509Cert
     }
 
 }
