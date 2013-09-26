@@ -34,22 +34,8 @@ import org.osiam.resources.helper.JsonPhoneNumberTypeSerializer;
 @JsonSerialize (using = JsonPhoneNumberTypeSerializer.class)
 @JsonDeserialize (using = JsonPhoneNumberTypeDeserializer.class)
 public enum PhoneNumberType{
-	WORK ("work"),
-	HOME ("home"),
-	OTHER ("other")
+	WORK,
+	HOME,
+	OTHER
 	;
-	
-	String value = "";
-	
-	PhoneNumberType(String value){
-		this.value = value;
-	}
-	
-	@Override
-	public String toString(){
-		return value;
-	}
-	public static AddressType fromString(String value){
-		return Enum.valueOf(AddressType.class, value.toUpperCase());
-	}
 }

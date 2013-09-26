@@ -34,21 +34,7 @@ import org.osiam.resources.helper.JsonMemberTypeSerializer;
 @JsonSerialize (using = JsonMemberTypeSerializer.class)
 @JsonDeserialize (using = JsonMemberTypeDeserializer.class)
 public enum MemberType{
-	USER ("User"),
-	GROUP ("Group")
+	USER,
+	GROUP
 	;
-	
-	String value = "";
-	
-	MemberType(String value){
-		this.value = value;
-	}
-	
-	@Override
-	public String toString(){
-		return value;
-	}
-	public static AddressType fromString(String value){
-		return Enum.valueOf(AddressType.class, value.toUpperCase());
-	}
 }

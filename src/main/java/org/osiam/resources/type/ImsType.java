@@ -34,27 +34,13 @@ import org.osiam.resources.helper.JsonImsTypeSerializer;
 @JsonSerialize (using = JsonImsTypeSerializer.class)
 @JsonDeserialize (using = JsonImsTypeDeserializer.class)
 public enum ImsType{
-	AIM ("aim"),
-	GTALK ("gtalk"),
-	ICQ ("icq"),
-	XMPP ("xmpp"),
-	MSN ("msn"),
-	SKYPE ("skype"),
-	QQ ("qq"),
-	YAHOO ("yahoo")
+	AIM,
+	GTALK,
+	ICQ,
+	XMPP,
+	MSN,
+	SKYPE,
+	QQ,
+	YAHOO
 	;
-	
-	String value = "";
-	
-	ImsType(String value){
-		this.value = value;
-	}
-	
-	@Override
-	public String toString(){
-		return value;
-	}
-	public static AddressType fromString(String value){
-		return Enum.valueOf(AddressType.class, value.toUpperCase());
-	}
 }

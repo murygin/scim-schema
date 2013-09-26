@@ -34,21 +34,7 @@ import org.osiam.resources.helper.JsonGroupRefTypeSerializer;
 @JsonSerialize (using = JsonGroupRefTypeSerializer.class)
 @JsonDeserialize (using = JsonGroupRefTypeDeserializer.class)
 public enum GroupRefType{
-	DIRECT ("direct"),
-	INDIRECT ("indirect")
+	DIRECT,
+	INDIRECT
 	;
-	
-	String value = "";
-	
-	GroupRefType(String value){
-		this.value = value;
-	}
-	
-	@Override
-	public String toString(){
-		return value;
-	}
-	public static AddressType fromString(String value){
-		return Enum.valueOf(AddressType.class, value.toUpperCase());
-	}
 }

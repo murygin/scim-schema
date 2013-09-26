@@ -35,21 +35,8 @@ import org.osiam.resources.helper.JsonAddressTypeSerializer;
 @JsonSerialize (using = JsonAddressTypeSerializer.class)
 @JsonDeserialize (using = JsonAddressTypeDeserializer.class)
 public enum AddressType {
-	WORK ("work"),
-	HOME ("home"),
-	OTHER ("other")
+	WORK,
+	HOME,
+	OTHER
 	;
-	
-	String value = "";
-	
-	AddressType(String value){
-		this.value = value;
-	}
-	
-	
-	public static AddressType fromString(String value){
-		return Enum.valueOf(AddressType.class, value.toUpperCase());
-	}
-
-		
 }

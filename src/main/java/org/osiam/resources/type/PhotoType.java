@@ -34,21 +34,7 @@ import org.osiam.resources.helper.JsonPhotoTypeSerializer;
 @JsonSerialize (using = JsonPhotoTypeSerializer.class)
 @JsonDeserialize (using = JsonPhotoTypeDeserializer.class)
 public enum PhotoType{
-	PHOTO ("photo"),
-	THUMBNAIL ("thumbnail")
+	PHOTO,
+	THUMBNAIL
 	;
-	
-	String value = "";
-	
-	PhotoType(String value){
-		this.value = value;
-	}
-	
-	@Override
-	public String toString(){
-		return value;
-	}
-	public static AddressType fromString(String value){
-		return Enum.valueOf(AddressType.class, value.toUpperCase());
-	}
 }

@@ -31,69 +31,87 @@ import org.osiam.resources.type.PhotoType;
 import spock.lang.Specification
 
 class BuildOrderTest extends Specification {
+
+	def "address should be able to build operation first"() {
+		given:
+		Address builder = new Address.Builder()
+				.setOperation("op")
+				.setCountry("country")
+				.build()
+	}
+	
     def "email should be able to build bottom to top"() {
-        given:
-        def builder = new Email.Builder()
-                .setOperation("op")
-                .setType(EmailType.HOME)
+    given:
+    Email builder = new Email.Builder()
+            .setOperation("op")
+            .setType(EmailType.HOME)
+			.build()
     }
 	
 	def "entitlement should be able to build bottom to top"() {
 		given:
-		def builder = new Entitlement.Builder()
+		Entitlement builder = new Entitlement.Builder()
 				.setOperation("op")
 				.setType("type")
+				.build()
 	}
 	
 	def "ims should be able to build bottom to top"() {
 		given:
-		def builder = new Ims.Builder()
+		Ims builder = new Ims.Builder()
 				.setOperation("op")
 				.setType(ImsType.AIM)
+				.build()
 	}
 	
 	def "phoneNumber should be able to build bottom to top"() {
 		given:
-		def builder = new PhoneNumber.Builder()
+		PhoneNumber builder = new PhoneNumber.Builder()
 				.setOperation("op")
 				.setType(PhoneNumberType.HOME)
+				.build()
 	}
 	
 	def "photo should be able to build bottom to top"() {
 		given:
-		def builder = new Photo.Builder()
+		Photo builder = new Photo.Builder()
 				.setOperation("op")
 				.setType(PhotoType.PHOTO)
+				.build()
 	}
 	
 	def "role should be able to build bottom to top"() {
 		given:
-		def builder = new Role.Builder()
+		Role builder = new Role.Builder()
 				.setOperation("op")
 				.setType("type")
+				.build()
 	}
 	
 	def "x509Certificate should be able to build bottom to top"() {
 		given:
-		def builder = new X509Certificate.Builder()
+		X509Certificate builder = new X509Certificate.Builder()
 				.setOperation("op")
 				.setType("type")
+				.build()
 	}
 	
 	def "user should be able to build bottom to top"() {
 		given:
-		def builder = new User.Builder()
+		User builder = new User.Builder()
 				.setId("")
 				.setExternalId("")
-				.setNickName("");
+				.setNickName("")
+				.build()
 	}
 	
 	def "group should be able to build bottom to top"() {
 		given:
-		def builder = new Group.Builder()
+		Group builder = new Group.Builder()
 				.setId("")
 				.setExternalId("")
-				.setMembers(null);
+				.setMembers(null)
+				.build()
 	}
 
 
