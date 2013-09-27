@@ -1,3 +1,6 @@
+/*
+ * for licensing see the file license.txt.
+ */
 package org.osiam.resources.scim;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;

@@ -1,3 +1,7 @@
+/*
+ * for licensing see the file license.txt.
+ */
+
 /**
  *  org.osiam.resources.helper is a group of classes which are helping to handle the business logic in other resource
  *  related objects.
