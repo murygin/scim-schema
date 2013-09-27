@@ -44,8 +44,8 @@ class BuildOrderTest extends Specification {
         notThrown(GroovyCastException)
 
         and: "all values should be set correctly"
-        builder.country == "country"
         builder.operation == "op"
+        builder.country == "country"
     }
 
     def "email should be able to build bottom to top"() {
