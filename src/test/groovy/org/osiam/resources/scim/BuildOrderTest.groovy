@@ -40,7 +40,7 @@ class BuildOrderTest extends Specification {
                 .setCountry("country")
                 .build()
 
-        then: "the return should be an address so no no cast exception should be thrown"
+        then: "the return should be an address so no cast exception should be thrown"
         notThrown(GroovyCastException)
 
         and: "all values should be set correctly"
