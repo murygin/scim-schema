@@ -40,8 +40,12 @@ class BuildOrderTest extends Specification {
                 .setCountry("country")
                 .build()
 
-        then: "the return should be an address an throw no cast exception"
+        then: "the return should be an address so no no cast exception should be thrown"
         notThrown(GroovyCastException)
+
+        and: "all values should be set correctly"
+        builder.country == "country"
+        builder.operation == "op"
     }
 
     def "email should be able to build bottom to top"() {
