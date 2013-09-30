@@ -7,7 +7,7 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class X509Certificate extends MultiValuedAttribute{
+public class X509Certificate extends BasicMultiValuedAttribute{
 
 	private X509Certificate() {
 	}
@@ -19,7 +19,7 @@ public class X509Certificate extends MultiValuedAttribute{
     /**
      * The Builder class is used to construct instances of the {@link X509Certificate}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<X509Certificate.Builder>{
+	public static class Builder extends BasicMultiValuedAttribute.Builder<X509Certificate.Builder>{
 
 		public Builder(){
 			setBuilder(this);

@@ -142,7 +142,7 @@ class BuildOrderTest extends Specification {
         when: "an X509Certificate object is built with operation first"
         X509Certificate builder = new X509Certificate.Builder()
                 .setOperation("op")
-                .setType("type")
+                .setValue("value")
                 .build()
 				
 		then: "the return should be an X509Certificate so no cast exception should be thrown"
@@ -150,7 +150,7 @@ class BuildOrderTest extends Specification {
 
 		and: "all values should be set correctly"
 		builder.operation == "op"
-		builder.type == "type"
+		builder.value == "value"
     }
 
     def "user should be able to build bottom to top"() {
