@@ -13,11 +13,8 @@ import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 
 /**
- * Created with IntelliJ IDEA.
- * User: jtodea
- * Date: 23.05.13
- * Time: 11:31
- * To change this template use File | Settings | File Templates.
+ * used to serialize a {@link Date} enum into a JSon String 
+ *
  */
 public class JsonDateSerializer extends JsonSerializer<Date> {
 

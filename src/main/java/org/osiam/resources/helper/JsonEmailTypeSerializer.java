@@ -12,7 +12,7 @@ import org.codehaus.jackson.map.SerializerProvider;
 import org.osiam.resources.type.EmailType;
 
 /**
- * used to serialize a AddressType {@link EmailType} into a JSon String 
+ * used to serialize a {@link EmailType} enum into a JSon String 
  *
  */
 public class JsonEmailTypeSerializer extends JsonSerializer<EmailType> {
