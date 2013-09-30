@@ -17,6 +17,9 @@ import org.osiam.resources.helper.JsonPhoneNumberTypeSerializer;
 public enum PhoneNumberType{
 	WORK,
 	HOME,
+	MOBILE,
+	FAX,
+	PAGER,
 	OTHER
 	;
 }
