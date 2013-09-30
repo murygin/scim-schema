@@ -28,7 +28,7 @@ import spock.lang.Specification
 class MultiValuedAttributeTest extends Specification {
     def "should contain value, display, primary, type and operation"() {
         given:
-        def builder = new Role.Builder()
+        def builder = new Entitlement.Builder()
                 .setOperation("op")
                 .setPrimary(true)
                 .setType("type")

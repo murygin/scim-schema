@@ -127,7 +127,7 @@ class BuildOrderTest extends Specification {
         when: "an Role object is built with operation first"
         Role builder = new Role.Builder()
                 .setOperation("op")
-                .setType("type")
+				.setValue("value")
                 .build()
 				
 		then: "the return should be an Role so no cast exception should be thrown"
@@ -135,7 +135,7 @@ class BuildOrderTest extends Specification {
 
 		and: "all values should be set correctly"
 		builder.operation == "op"
-		builder.type == "type"
+		builder.value == "value"
     }
 
     def "x509Certificate should be able to build bottom to top"() {

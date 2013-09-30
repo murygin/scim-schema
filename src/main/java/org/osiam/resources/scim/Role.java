@@ -7,7 +7,7 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Role extends MultiValuedAttribute{
+public class Role extends BasicMultiValuedAttribute{
 
 	private Role() {
 	}
@@ -19,7 +19,7 @@ public class Role extends MultiValuedAttribute{
     /**
      * The Builder class is used to construct instances of the {@link Role}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<Role.Builder>{
+	public static class Builder extends BasicMultiValuedAttribute.Builder<Role.Builder>{
 
 		public Builder(){
 			setBuilder(this);
