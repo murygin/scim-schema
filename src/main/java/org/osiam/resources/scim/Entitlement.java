@@ -7,20 +7,37 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Entitlement extends MultiValuedAttribute{
+public class Entitlement extends BasicMultiValuedAttribute{
 
+	private String type;
+	
 	public Entitlement() {
 	}
 	
 	private Entitlement(Builder builder) {
 		super(builder);
+		this.type = builder.type;
 	}
+	
+    /**
+     * Gets the value of the type property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getType() {
+        return type;
+    }  
 	
     /**
      * The Builder class is used to construct instances of the {@link Entitlement}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<Entitlement.Builder>{
+	public static class Builder extends BasicMultiValuedAttribute.Builder<Entitlement.Builder>{
 
+		protected String type;
+		
 		public Builder(){
 			setBuilder(this);
 		}
@@ -32,6 +49,7 @@ public class Entitlement extends MultiValuedAttribute{
 		public Builder(Entitlement old){
 			super(old);
 			setBuilder(this);
+    		this.type = old.type;
 		}
 		
         /**
@@ -41,6 +59,11 @@ public class Entitlement extends MultiValuedAttribute{
          */
         public Entitlement build() {
             return new Entitlement(this);
+        }
+        
+        public Builder setType(String type) {
+            this.type = type;
+            return this;
         }
     }
 
