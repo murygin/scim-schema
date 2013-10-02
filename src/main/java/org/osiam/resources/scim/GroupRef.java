@@ -7,6 +7,9 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.type.GroupRefType;
 
+/**
+ * Java class for Reference of a Group where a User is member of.
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class GroupRef extends BasicMultiValuedAttribute{
 
@@ -51,11 +54,6 @@ public class GroupRef extends BasicMultiValuedAttribute{
 			super(old);
 			this.type = old.type;
 			setBuilder(this);
-		}
-		
-		public Builder setType(GroupRefType type){
-			this.type = type;
-			return this;
 		}
 		
         /**

@@ -7,6 +7,9 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.type.PhoneNumberType;
 
+/**
+ * Java class for phone number complex type.
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class PhoneNumber extends BasicMultiValuedAttribute{
 
@@ -53,6 +56,11 @@ public class PhoneNumber extends BasicMultiValuedAttribute{
 			setBuilder(this);
 		}
 		
+        /**
+         * sets the attribute to the builder
+         * @param type the wanted type
+         * @return the builder itself
+         */
 		public Builder setType(PhoneNumberType type){
 			this.type = type;
 			return this;

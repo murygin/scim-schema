@@ -41,6 +41,12 @@ public class Group extends CoreResource{
         return displayName;
     }
 
+    /**
+     * Gets a Set of all Members of the actual Group.
+     * A member can be a other group or a User. 
+     * To decide please look at the getType of the member
+     * @return a set of all members
+     */
     public Set<Member> getMembers() {
         return members;
     }
@@ -57,6 +63,10 @@ public class Group extends CoreResource{
         	setBuilder(this);
         }
 
+        /**
+         * 
+         * @param displayName the unique display name of the group
+         */
         public Builder(String displayName) {
         	this.displayName = displayName;
         	setBuilder(this);
@@ -74,11 +84,22 @@ public class Group extends CoreResource{
             members = group.members;
         }
 
+        /**
+         * set all or additional members of a Group. 
+         * A member can be a group or a User
+         * @param members
+         * @return the builder itself
+         */
         public Builder setMembers(Set<Member> members) {
             this.members = members;
             return this;
         }
 
+        /**
+         * Construct the {@link Group} with the parameters passed to this builder.
+         *
+         * @return An {@link Group} configured accordingly
+         */
 		public Group build(){
             return new Group(this);
         }

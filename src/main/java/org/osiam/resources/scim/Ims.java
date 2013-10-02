@@ -7,6 +7,9 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.type.ImsType;
 
+/**
+ * Java class for ims complex type.
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class Ims extends BasicMultiValuedAttribute{
 
@@ -53,6 +56,11 @@ public class Ims extends BasicMultiValuedAttribute{
 			setBuilder(this);
 		}
 		
+        /**
+         * sets the attribute to the builder
+         * @param type the wanted type
+         * @return the builder itself
+         */
 		public Builder setType(ImsType type){
 			this.type = type;
 			return this;

@@ -6,6 +6,9 @@ package org.osiam.resources.scim;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+/**
+ * Java class for role complex type.
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class Role extends BasicMultiValuedAttribute{
 

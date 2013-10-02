@@ -7,6 +7,9 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.type.MemberType;
 
+/**
+ * Java class for members of a group which can be a group or a user.
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class Member{
 	private MemberType type;

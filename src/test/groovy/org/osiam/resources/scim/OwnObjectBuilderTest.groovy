@@ -103,7 +103,6 @@ class OwnObjectBuilderTest extends Specification {
 		def oldAttribute = new GroupRef.Builder()
 				.setOperation("operation")
 				.setPrimary(true)
-				.setType(GroupRefType.DIRECT)
 				.setValue("value")
 				.build();
 		
@@ -113,7 +112,6 @@ class OwnObjectBuilderTest extends Specification {
 		then:
 		oldAttribute.getOperation() == newAttribute.getOperation()
 		oldAttribute.isPrimary() == newAttribute.isPrimary()
-		oldAttribute.getType() == newAttribute.getType()
 		oldAttribute.getValue() == newAttribute.getValue()
 	}
 	

@@ -13,7 +13,7 @@ public abstract class CoreResource  extends Resource{
 
     public CoreResource() {}
 
-    public CoreResource(Builder builder) {
+    public CoreResource(@SuppressWarnings("rawtypes") Builder builder) {
         super(builder);
         this.externalId = builder.externalId;
     }

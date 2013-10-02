@@ -6,6 +6,9 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.type.EmailType;
 
+/**
+ * Java class for email complex type.
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class Email extends BasicMultiValuedAttribute{
 
@@ -52,6 +55,11 @@ public class Email extends BasicMultiValuedAttribute{
 			setBuilder(this);
 		}
 		
+        /**
+         * sets the attribute to the builder
+         * @param type the wanted type
+         * @return the builder itself
+         */
 		public Builder setType(EmailType type){
 			this.type = type;
 			return this;

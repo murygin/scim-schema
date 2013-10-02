@@ -6,6 +6,9 @@ package org.osiam.resources.scim;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+/**
+ * Java class for Entitlement complex type.
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class Entitlement extends BasicMultiValuedAttribute{
 
@@ -61,6 +64,11 @@ public class Entitlement extends BasicMultiValuedAttribute{
             return new Entitlement(this);
         }
         
+        /**
+         * sets the attribute to the builder
+         * @param type the wanted type
+         * @return the builder itself
+         */
         public Builder setType(String type) {
             this.type = type;
             return this;

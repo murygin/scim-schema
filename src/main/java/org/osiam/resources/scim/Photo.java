@@ -7,6 +7,9 @@ package org.osiam.resources.scim;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.type.PhotoType;
 
+/**
+ * Java class for a url address of a photo.
+ */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class Photo extends BasicMultiValuedAttribute{
 
@@ -53,6 +56,11 @@ public class Photo extends BasicMultiValuedAttribute{
 			setBuilder(this);
 		}
 		
+        /**
+         * sets the attribute to the builder
+         * @param type the wanted type
+         * @return the builder itself
+         */
 		public Builder setType(PhotoType type){
 			this.type = type;
 			return this;
