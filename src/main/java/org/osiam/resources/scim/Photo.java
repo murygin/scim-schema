@@ -11,7 +11,7 @@ import org.osiam.resources.type.PhotoType;
  * Java class for a url address of a photo.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Photo extends BasicMultiValuedAttribute{
+public class Photo extends MultiValuedAttribute{
 
 	private PhotoType type;
 	
@@ -38,7 +38,7 @@ public class Photo extends BasicMultiValuedAttribute{
     /**
      * The Builder class is used to construct instances of the {@link Photo}
      */
-	public static class Builder extends BasicMultiValuedAttribute.Builder<Photo.Builder>{
+	public static class Builder extends MultiValuedAttribute.Builder<Photo.Builder>{
 
 		private PhotoType type;
 		

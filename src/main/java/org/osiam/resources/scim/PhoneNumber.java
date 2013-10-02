@@ -11,7 +11,7 @@ import org.osiam.resources.type.PhoneNumberType;
  * Java class for phone number complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class PhoneNumber extends BasicMultiValuedAttribute{
+public class PhoneNumber extends MultiValuedAttribute{
 
 	private PhoneNumberType type;
 	
@@ -38,7 +38,7 @@ public class PhoneNumber extends BasicMultiValuedAttribute{
     /**
      * The Builder class is used to construct instances of the {@link PhoneNumber}
      */
-	public static class Builder extends BasicMultiValuedAttribute.Builder<PhoneNumber.Builder>{
+	public static class Builder extends MultiValuedAttribute.Builder<PhoneNumber.Builder>{
 
 		private PhoneNumberType type;
 		

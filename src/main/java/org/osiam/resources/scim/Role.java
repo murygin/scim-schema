@@ -10,7 +10,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * Java class for role complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Role extends BasicMultiValuedAttribute{
+public class Role extends MultiValuedAttribute{
 
 	private Role() {
 	}
@@ -22,7 +22,7 @@ public class Role extends BasicMultiValuedAttribute{
     /**
      * The Builder class is used to construct instances of the {@link Role}
      */
-	public static class Builder extends BasicMultiValuedAttribute.Builder<Role.Builder>{
+	public static class Builder extends MultiValuedAttribute.Builder<Role.Builder>{
 
 		public Builder(){
 			setBuilder(this);

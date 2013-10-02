@@ -12,14 +12,12 @@ public abstract class BasicMultiValuedAttribute {
 
     protected String value;
     protected String display;
-    protected Boolean primary;
     protected String operation;
 
     protected BasicMultiValuedAttribute() {    }
     
     protected BasicMultiValuedAttribute(@SuppressWarnings("rawtypes") Builder builder) {
         this.value = builder.value;
-        this.primary = builder.primary;
         this.operation = builder.operation;
     }
 
@@ -48,18 +46,6 @@ public abstract class BasicMultiValuedAttribute {
     }
 
     /**
-     * Gets the value of the primary property.
-     *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
-     */
-    public Boolean isPrimary() {
-        return primary;
-    }
-
-    /**
      * Gets the value of the operation property.
      *
      * @return
@@ -74,7 +60,6 @@ public abstract class BasicMultiValuedAttribute {
     public static abstract class Builder<T>{
 
     	protected String value;
-        protected Boolean primary;
         protected String operation;
         protected T builder;
         
@@ -87,17 +72,11 @@ public abstract class BasicMultiValuedAttribute {
         
         protected Builder(BasicMultiValuedAttribute old){
         	this.value = old.value;
-        	this.primary = old.primary;
         	this.operation = old.operation;
         }
         
         public T setValue(String value) {
             this.value = value;
-            return builder;
-        }
-
-        public T setPrimary(Boolean primary) {
-            this.primary = primary;
             return builder;
         }
 

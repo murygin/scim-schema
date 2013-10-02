@@ -10,7 +10,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * Java class for Entitlement complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Entitlement extends BasicMultiValuedAttribute{
+public class Entitlement extends MultiValuedAttribute{
 
 	private String type;
 	
@@ -37,7 +37,7 @@ public class Entitlement extends BasicMultiValuedAttribute{
     /**
      * The Builder class is used to construct instances of the {@link Entitlement}
      */
-	public static class Builder extends BasicMultiValuedAttribute.Builder<Entitlement.Builder>{
+	public static class Builder extends MultiValuedAttribute.Builder<Entitlement.Builder>{
 
 		protected String type;
 		

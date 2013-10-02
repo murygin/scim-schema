@@ -11,7 +11,7 @@ import org.osiam.resources.type.ImsType;
  * Java class for ims complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Ims extends BasicMultiValuedAttribute{
+public class Ims extends MultiValuedAttribute{
 
 	private ImsType type;
 	
@@ -38,7 +38,7 @@ public class Ims extends BasicMultiValuedAttribute{
     /**
      * The Builder class is used to construct instances of the {@link Ims}
      */
-	public static class Builder extends BasicMultiValuedAttribute.Builder<Ims.Builder>{
+	public static class Builder extends MultiValuedAttribute.Builder<Ims.Builder>{
 
 		private ImsType type;
 		
