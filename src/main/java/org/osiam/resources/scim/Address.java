@@ -141,7 +141,7 @@ public class Address {
         
         /**
 		 * copies all attributes to the new Builder to be able to change one attribute
-		 * @param old old {@link Address} to be changed or copied
+		 * @param oldAddress old {@link Address} to be changed or copied
 		 */
         public Builder(Address oldAddress){
         	this.formatted = oldAddress.formatted;

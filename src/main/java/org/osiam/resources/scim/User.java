@@ -14,7 +14,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * <p>Java class for User complex type.
  * <p/>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * @see <a href="SCIM 02 User definition">http://tools.ietf.org/html/draft-ietf-scim-core-schema-02#section-6</a>
+ * @see <a href="http://tools.ietf.org/html/draft-ietf-scim-core-schema-02#section-6">SCIM 02 User definition</a>
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class User extends CoreResource {
