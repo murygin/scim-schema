@@ -7,9 +7,10 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.helper.JsonMemberTypeDeserializer;
 import org.osiam.resources.helper.JsonMemberTypeSerializer;
+import org.osiam.resources.scim.Member;
 
 /**
- * possible enums for the Address Type
+possible types for the  {@link Member } 
  *
  */
 @JsonSerialize (using = JsonMemberTypeSerializer.class)

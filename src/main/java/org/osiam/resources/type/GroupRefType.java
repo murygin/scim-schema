@@ -7,9 +7,10 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.helper.JsonGroupRefTypeDeserializer;
 import org.osiam.resources.helper.JsonGroupRefTypeSerializer;
+import org.osiam.resources.scim.GroupRef;
 
 /**
- * possible enums for the Address Type
+possible types for the  {@link GroupRef } 
  *
  */
 @JsonSerialize (using = JsonGroupRefTypeSerializer.class)

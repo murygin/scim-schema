@@ -15,8 +15,10 @@ public class Ims extends MultiValuedAttribute{
 
 	private ImsType type;
 	
-	public Ims(){
-	}
+    /**
+     * needed for json serializing
+     */
+	private Ims(){	}
 	
 	private Ims(Builder builder) {
 		super(builder);

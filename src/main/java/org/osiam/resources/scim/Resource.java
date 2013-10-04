@@ -15,6 +15,9 @@ public abstract class Resource {
     private Meta meta;
     private Set<String> schemas;
 
+    /**
+     * needed for json serializing
+     */
     protected Resource(){}
 
     protected Resource(Builder builder) {

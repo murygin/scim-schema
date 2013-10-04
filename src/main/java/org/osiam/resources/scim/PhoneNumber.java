@@ -15,8 +15,10 @@ public class PhoneNumber extends MultiValuedAttribute{
 
 	private PhoneNumberType type;
 	
-	public PhoneNumber(){
-	}
+    /**
+     * needed for json serializing
+     */
+	private PhoneNumber(){	}
 	
 	private PhoneNumber(Builder builder) {
 		super(builder);

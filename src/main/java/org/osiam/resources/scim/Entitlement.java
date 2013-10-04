@@ -14,8 +14,10 @@ public class Entitlement extends MultiValuedAttribute{
 
 	private String type;
 	
-	public Entitlement() {
-	}
+    /**
+     * needed for json serializing
+     */
+	public Entitlement() {	}
 	
 	private Entitlement(Builder builder) {
 		super(builder);

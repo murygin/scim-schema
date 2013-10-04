@@ -15,8 +15,10 @@ public class GroupRef extends BasicMultiValuedAttribute{
 
 	private GroupRefType type;
 	
-	private GroupRef() {
-	}
+    /**
+     * needed for json serializing
+     */
+	private GroupRef() {	}
 	
 	private GroupRef(Builder builder) {
 		super(builder);

@@ -10,7 +10,7 @@ import org.osiam.resources.helper.JsonAddressTypeSerializer;
 
 
 /**
- * possible enums for the Address Type
+ * possible types for the  {@link Address } 
  *
  */
 @JsonSerialize (using = JsonAddressTypeSerializer.class)

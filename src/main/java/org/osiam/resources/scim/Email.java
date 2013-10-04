@@ -14,8 +14,10 @@ public class Email extends MultiValuedAttribute{
 
 	private EmailType type;
 	
-	private Email() {
-	}
+    /**
+     * needed for json serializing
+     */
+	private Email() {	}
 	
 	private Email(Builder builder) {
 		super(builder);

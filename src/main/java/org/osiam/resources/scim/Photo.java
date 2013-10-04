@@ -15,8 +15,10 @@ public class Photo extends MultiValuedAttribute{
 
 	private PhotoType type;
 	
-	private Photo() {
-	}
+    /**
+     * needed for json serializing
+     */
+	private Photo() {	}
 	
 	private Photo(Builder builder) {
 		super(builder);

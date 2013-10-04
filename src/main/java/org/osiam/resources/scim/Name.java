@@ -23,7 +23,7 @@ public class Name {
     /**
      * needed for json serializing
      */
-    public Name() {}
+    private Name() {}
 
     private Name(Builder builder) {
         this.formatted = builder.formatted;
@@ -33,73 +33,6 @@ public class Name {
         this.honorificPrefix = builder.honorificPrefix;
         this.honorificSuffix = builder.honorificSuffix;
 
-    }
-
-    /**
-     * The Builder class is used to construct instances of the {@link Name}
-     */
-    public static class Builder {
-        private String formatted;
-        private String familyName;
-        private String givenName;
-        private String middleName;
-        private String honorificPrefix;
-        private String honorificSuffix;
-
-        public Builder(){
-        }
-        
-		/**
-		 * copies all attributes to the new Builder to be able to change one attribute
-		 * @param old old {@link Name} to be changed or copied
-		 */
-        public Builder(Name old){
-        	this.formatted = old.formatted;
-        	this.familyName = old.familyName;
-        	this.givenName = old.givenName;
-        	this.middleName = old.middleName;
-        	this.honorificPrefix = old.honorificPrefix;
-        	this.honorificSuffix = old.honorificSuffix;
-        }
-        
-        public Builder setFormatted(String formatted) {
-            this.formatted = formatted;
-            return this;
-        }
-
-        public Builder setFamilyName(String familyName) {
-            this.familyName = familyName;
-            return this;
-        }
-
-        public Builder setGivenName(String givenName) {
-            this.givenName = givenName;
-            return this;
-        }
-
-        public Builder setMiddleName(String middleName) {
-            this.middleName = middleName;
-            return this;
-        }
-
-        public Builder setHonorificPrefix(String honorificPrefix) {
-            this.honorificPrefix = honorificPrefix;
-            return this;
-        }
-
-        public Builder setHonorificSuffix(String honorificSuffix) {
-            this.honorificSuffix = honorificSuffix;
-            return this;
-        }
-
-        /**
-         * Construct the {@link Name} with the parameters passed to this builder.
-         *
-         * @return An {@link Name} configured accordingly
-         */
-        public Name build() {
-            return new Name(this);
-        }
     }
 
     /**
@@ -161,6 +94,103 @@ public class Name {
      */
     public String getHonorificSuffix() {
         return honorificSuffix;
+    }
+    
+    /**
+     * The Builder class is used to construct instances of the {@link Name}
+     */
+    public static class Builder {
+        private String formatted;
+        private String familyName;
+        private String givenName;
+        private String middleName;
+        private String honorificPrefix;
+        private String honorificSuffix;
+
+        public Builder(){
+        }
+        
+		/**
+		 * copies all attributes to the new Builder to be able to change one attribute
+		 * @param old old {@link Name} to be changed or copied
+		 */
+        public Builder(Name old){
+        	this.formatted = old.formatted;
+        	this.familyName = old.familyName;
+        	this.givenName = old.givenName;
+        	this.middleName = old.middleName;
+        	this.honorificPrefix = old.honorificPrefix;
+        	this.honorificSuffix = old.honorificSuffix;
+        }
+        
+        /**
+         * sets the name as formatted String to the builder
+         * @param formatted the wanted type
+         * @return the builder itself
+         */
+        public Builder setFormatted(String formatted) {
+            this.formatted = formatted;
+            return this;
+        }
+
+        /**
+         * sets the familyName to the builder
+         * @param familyName the familyName of the User
+         * @return the builder itself
+         */
+        public Builder setFamilyName(String familyName) {
+            this.familyName = familyName;
+            return this;
+        }
+
+        /**
+         * sets the givenName to the builder
+         * @param givenName the first Name of the User
+         * @return the builder itself
+         */
+        public Builder setGivenName(String givenName) {
+            this.givenName = givenName;
+            return this;
+        }
+
+        /**
+         * sets the middleName to the builder
+         * @param middleName the middleName of the User
+         * @return the builder itself
+         */
+        public Builder setMiddleName(String middleName) {
+            this.middleName = middleName;
+            return this;
+        }
+
+        /**
+         * sets the honorific Prefix to the builder
+         * @param honorificPrefix the honorific Prefix of the User
+         * @return the builder itself
+         */
+        public Builder setHonorificPrefix(String honorificPrefix) {
+            this.honorificPrefix = honorificPrefix;
+            return this;
+        }
+
+        /**
+         * sets the honorific Suffix to the builder
+         * @param honorificSuffix the honorific Suffix of the User
+         * @return the builder itself
+         */
+        public Builder setHonorificSuffix(String honorificSuffix) {
+            this.honorificSuffix = honorificSuffix;
+            return this;
+        }
+
+        /**
+         * Construct the {@link Name} with the parameters passed to this builder.
+         *
+         * @return An {@link Name} configured accordingly
+         */
+        public Name build() {
+            return new Name(this);
+        }
     }
 
 }

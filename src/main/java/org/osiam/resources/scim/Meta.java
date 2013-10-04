@@ -27,8 +27,10 @@ public class Meta {
     private Set<String> attributes;
     private String resourceType;
 
-    //JSon Serializing ...
-    public Meta() { }
+    /**
+     * needed for json serializing
+     */
+    private Meta() { }
 
 
     private Meta(Builder builder) {
@@ -40,6 +42,68 @@ public class Meta {
         this.resourceType = builder.resourceType;
     }
 
+    /**
+     * Gets the value of the location property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * Gets the value of the version property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getVersion() {
+        return version;
+    }
+
+    /**
+     * the attributes in this Set will be removed from the OSIAM server while doing a PATCH operation
+     * @return a Set of all Attributes
+     */
+    public Set<String> getAttributes() {
+        return attributes;
+    }
+
+    /**
+     * 
+     * @return the date the resource was created
+     */
+    public Date getCreated() {
+        if (created != null) {
+            return new Date(created.getTime());
+        }
+        return null;
+    }
+
+    /**
+     * 
+     * @return the date the resource was last modified
+     */
+    public Date getLastModified() {
+        if (lastModified != null) {
+            return new Date(lastModified.getTime());
+        }
+        return null;
+    }
+
+    /**
+     * 
+     * @return the type of the resource
+     */
+    public String getResourceType() {
+        return resourceType;
+    }
+    
     /**
      * The Builder class is used to construct instances of the {@link Meta}
      */
@@ -94,22 +158,41 @@ public class Meta {
         	}
         }
         
+        /**
+         * sets the location to the builder
+         * @param location the wanted location
+         * @return the builder itself
+         */
         public Builder setLocation(String location) {
             this.location = location;
             return this;
         }
 
+        /**
+         * sets the version to the builder
+         * @param version the actual version
+         * @return the builder itself
+         */
         public Builder setVersion(String version) {
             this.version = version;
             return this;
         }
 
+        /**
+         * sets the resourceType to the builder
+         * @param resourceType the actual resourceType
+         * @return the builder itself
+         */
         public Builder setResourceType(String resourceType) {
             this.resourceType = resourceType;
             return this;
         }
 
-
+        /**
+         * sets a list of attributes that need to be deleted while doing a PATCH operation
+         * @param attributes all attributes to be deleted
+         * @return the builder itself
+         */
         public Builder setAttributes(Set<String> attributes) {
             this.attributes = attributes;
             return this;
@@ -123,58 +206,5 @@ public class Meta {
         public Meta build(){
             return new Meta(this);
         }
-    }
-
-
-
-    /**
-     * Gets the value of the location property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location =location;
-    }
-
-    /**
-     * Gets the value of the version property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getVersion() {
-        return version;
-    }
-
-
-    public Set<String> getAttributes() {
-        return attributes;
-    }
-
-    public Date getCreated() {
-        if (created != null) {
-            return new Date(created.getTime());
-        }
-        return null;
-    }
-
-    public Date getLastModified() {
-        if (lastModified != null) {
-            return new Date(lastModified.getTime());
-        }
-        return null;
-    }
-
-    public String getResourceType() {
-        return resourceType;
     }
 }

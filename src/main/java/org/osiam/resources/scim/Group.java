@@ -12,6 +12,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
  * Java class for Group complex type.
+ * @see <a href="SCIM 02 Group definition">http://tools.ietf.org/html/draft-ietf-scim-core-schema-02#section-8</a>
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class Group extends CoreResource{
@@ -19,7 +20,9 @@ public class Group extends CoreResource{
     private String displayName;
     private Set<Member> members;
 
-    //JSON Serializing
+    /**
+     * needed for json serializing
+     */
     public Group(){}
 
 

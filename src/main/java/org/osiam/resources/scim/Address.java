@@ -22,8 +22,10 @@ public class Address {
     private String operation;
     private AddressType type;
 
-    public Address() {
-    }
+    /**
+     * needed for json serializing
+     */
+    private Address() {    }
 
     private Address(Builder builder) {
         this.formatted = builder.formatted;

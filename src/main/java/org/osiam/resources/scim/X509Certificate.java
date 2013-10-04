@@ -12,8 +12,10 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class X509Certificate extends MultiValuedAttribute{
 
-	private X509Certificate() {
-	}
+    /**
+     * needed for json serializing
+     */
+	private X509Certificate() { 	}
 	
 	private X509Certificate(Builder builder) {
 		super(builder);

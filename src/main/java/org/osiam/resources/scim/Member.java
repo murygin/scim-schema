@@ -17,8 +17,10 @@ public class Member{
     private String operation;
     private String display;
 	
-    public Member(){
-    }
+    /**
+     * needed for json serializing
+     */
+    private Member(){    }
     
 	private Member(Builder builder) {
 		this.value = builder.value;
@@ -61,7 +63,11 @@ public class Member{
         return operation;
     }
 	
-
+    /**
+     * Gets the displayName (Group) or userName (User) from the Member
+     * @return possible object is
+     *     {@link String }
+     */
     public String getDisplay() {
         return display;
     }
@@ -86,15 +92,30 @@ public class Member{
         	this.operation = old.operation;
         }
         
+        /**
+         * 
+         * @param value the id from the User or the Group which is a member of the group
+         * @return the builder itself
+         */
         public Builder setValue(String value) {
             this.value = value;
             return this;
         }
         
+        /**
+         * 
+         * @param value the Group which is a member of the group
+         * @return the builder itself
+         */
         public Builder setValue(Group value) {
             return setValue(value.getId());
         }
         
+        /**
+         * 
+         * @param value the User which is a member of the group
+         * @return the builder itself
+         */
         public Builder setValue(User value) {
             return setValue(value.getId());
         }
@@ -103,6 +124,11 @@ public class Member{
             return new Member(this);
         }
 		
+        /**
+         * Construct the {@link Member} with the parameters passed to this builder.
+         *
+         * @return An {@link Member} configured accordingly
+         */
         public Builder setOperation(String operation) {
             this.operation = operation;
             return this;

@@ -12,8 +12,10 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class Role extends MultiValuedAttribute{
 
-	private Role() {
-	}
+    /**
+     * needed for json serializing
+     */
+	private Role() { 	}
 	
 	private Role(Builder builder) {
 		super(builder);

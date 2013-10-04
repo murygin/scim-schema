@@ -7,9 +7,10 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.helper.JsonEmailTypeDeserializer;
 import org.osiam.resources.helper.JsonEmailTypeSerializer;
+import org.osiam.resources.scim.Email;
 
 /**
- * possible enums for the Address Type
+possible types for the  {@link Email } 
  *
  */
 @JsonSerialize (using = JsonEmailTypeSerializer.class)

@@ -7,9 +7,10 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.helper.JsonPhotoTypeDeserializer;
 import org.osiam.resources.helper.JsonPhotoTypeSerializer;
+import org.osiam.resources.scim.Photo;
 
 /**
- * possible enums for the Address Type
+possible types for the  {@link Photo } 
  *
  */
 @JsonSerialize (using = JsonPhotoTypeSerializer.class)
