@@ -273,13 +273,12 @@ public class User extends CoreResource {
         }
 
         /**
-         * This class is for generating the output of an User. It does not copy the password and it checks for empty
-         * lists; if a list is empty it will be nulled so that json-mapping will ignore it.
+         * This method copies the given User except the Password
          *
-         * @param user
-         * @return new (filtered) {@link User} object
+         * @param user User to be copied
+         * @return new {@link User.Builder} object
          */
-        public static User generateForOutput(User user) {
+        public static User.Builder copyUserWithoutPassword(User user) {
             if (user == null) {
                 return null;
             }
@@ -308,7 +307,7 @@ public class User extends CoreResource {
             builder.roles = user.roles;
             builder.x509Certificates = user.x509Certificates;
             builder.schemas = user.getSchemas();
-            return builder.build();
+            return builder;
         }
 
         /**
