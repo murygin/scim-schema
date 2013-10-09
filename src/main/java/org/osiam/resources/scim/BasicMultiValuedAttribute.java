@@ -10,9 +10,9 @@ package org.osiam.resources.scim;
  */
 public abstract class BasicMultiValuedAttribute {
 
-    protected String value;
-    protected String display;
-    protected String operation;
+    protected String value;      // NOSONAR - false-positive from clover; visibility can't be private
+    protected String display;    // NOSONAR - false-positive from clover; visibility can't be private
+    protected String operation;  // NOSONAR - false-positive from clover; visibility can't be private
 
     protected BasicMultiValuedAttribute() {    }
     
@@ -59,9 +59,9 @@ public abstract class BasicMultiValuedAttribute {
 
     public static abstract class Builder<T>{
 
-    	protected String value;
-        protected String operation;
-        protected T builder;
+    	protected String value;      // NOSONAR - false-positive from clover; visibility can't be private
+        protected String operation;  // NOSONAR - false-positive from clover; visibility can't be private
+        protected T builder;         // NOSONAR - false-positive from clover; visibility can't be private
         
         protected void setBuilder(T self){
         	this.builder = self;

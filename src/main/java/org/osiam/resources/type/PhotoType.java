@@ -10,8 +10,7 @@ import org.osiam.resources.helper.JsonPhotoTypeSerializer;
 import org.osiam.resources.scim.Photo;
 
 /**
-possible types for the  {@link Photo } 
- *
+ * possible types for the  {@link Photo } 
  */
 @JsonSerialize (using = JsonPhotoTypeSerializer.class)
 @JsonDeserialize (using = JsonPhotoTypeDeserializer.class)

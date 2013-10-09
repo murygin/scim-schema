@@ -10,8 +10,7 @@ import org.osiam.resources.helper.JsonMemberTypeSerializer;
 import org.osiam.resources.scim.Member;
 
 /**
-possible types for the  {@link Member } 
- *
+ * possible types for the  {@link Member } 
  */
 @JsonSerialize (using = JsonMemberTypeSerializer.class)
 @JsonDeserialize (using = JsonMemberTypeDeserializer.class)

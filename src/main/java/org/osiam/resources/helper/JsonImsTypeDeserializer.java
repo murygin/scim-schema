@@ -6,7 +6,6 @@ package org.osiam.resources.helper;
 import java.io.IOException;
 
 import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.osiam.resources.type.ImsType;
@@ -18,7 +17,7 @@ import org.osiam.resources.type.ImsType;
 public class JsonImsTypeDeserializer extends JsonDeserializer<ImsType> {
 
     @Override
-    public ImsType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException, JsonProcessingException
+    public ImsType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException
     {
         final String jsonValue = parser.getText();
         return ImsType.valueOf(jsonValue.toUpperCase());

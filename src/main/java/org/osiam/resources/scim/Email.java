@@ -10,7 +10,7 @@ import org.osiam.resources.type.EmailType;
  * Java class for email complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Email extends MultiValuedAttribute{
+public class Email extends MultiValuedAttribute{ // NOSONAR - Builder constructs instances of this class
 
 	private EmailType type;
 	

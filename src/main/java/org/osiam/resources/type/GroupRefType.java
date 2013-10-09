@@ -10,8 +10,7 @@ import org.osiam.resources.helper.JsonGroupRefTypeSerializer;
 import org.osiam.resources.scim.GroupRef;
 
 /**
-possible types for the  {@link GroupRef } 
- *
+ * possible types for the  {@link GroupRef } 
  */
 @JsonSerialize (using = JsonGroupRefTypeSerializer.class)
 @JsonDeserialize (using = JsonGroupRefTypeDeserializer.class)

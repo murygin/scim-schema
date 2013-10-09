@@ -10,8 +10,7 @@ import org.osiam.resources.helper.JsonPhoneNumberTypeSerializer;
 import org.osiam.resources.scim.PhoneNumber;
 
 /**
-possible types for the  {@link PhoneNumber } 
- *
+ * possible types for the  {@link PhoneNumber } 
  */
 @JsonSerialize (using = JsonPhoneNumberTypeSerializer.class)
 @JsonDeserialize (using = JsonPhoneNumberTypeDeserializer.class)

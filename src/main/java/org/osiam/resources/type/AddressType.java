@@ -11,7 +11,6 @@ import org.osiam.resources.helper.JsonAddressTypeSerializer;
 
 /**
  * possible types for the  {@link Address } 
- *
  */
 @JsonSerialize (using = JsonAddressTypeSerializer.class)
 @JsonDeserialize (using = JsonAddressTypeDeserializer.class)

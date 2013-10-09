@@ -10,7 +10,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * Java class for X509Certificate complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class X509Certificate extends MultiValuedAttribute{
+public class X509Certificate extends MultiValuedAttribute{  // NOSONAR - Builder constructs instances of this class
 
     /**
      * needed for json serializing

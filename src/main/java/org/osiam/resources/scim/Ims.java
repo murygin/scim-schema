@@ -11,7 +11,7 @@ import org.osiam.resources.type.ImsType;
  * Java class for ims complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Ims extends MultiValuedAttribute{
+public class Ims extends MultiValuedAttribute{ // NOSONAR - Builder constructs instances of this class
 
 	private ImsType type;
 	

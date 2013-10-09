@@ -6,7 +6,6 @@ package org.osiam.resources.helper;
 import java.io.IOException;
 
 import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.osiam.resources.type.PhotoType;
@@ -18,7 +17,7 @@ import org.osiam.resources.type.PhotoType;
 public class JsonPhotoTypeDeserializer extends JsonDeserializer<PhotoType> {
 
     @Override
-    public PhotoType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException, JsonProcessingException
+    public PhotoType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException
     {
         final String jsonValue = parser.getText();
         return PhotoType.valueOf(jsonValue.toUpperCase());

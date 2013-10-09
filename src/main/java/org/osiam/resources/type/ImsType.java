@@ -10,8 +10,7 @@ import org.osiam.resources.helper.JsonImsTypeSerializer;
 import org.osiam.resources.scim.Ims;
 
 /**
-possible types for the  {@link Ims } 
- *
+ * possible types for the  {@link Ims } 
  */
 @JsonSerialize (using = JsonImsTypeSerializer.class)
 @JsonDeserialize (using = JsonImsTypeDeserializer.class)

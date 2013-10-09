@@ -6,7 +6,6 @@ package org.osiam.resources.helper;
 import java.io.IOException;
 
 import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.osiam.resources.scim.Email;
@@ -19,7 +18,7 @@ import org.osiam.resources.type.EmailType;
 public class JsonEmailTypeDeserializer extends JsonDeserializer<EmailType> {
 
     @Override
-    public EmailType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException, JsonProcessingException
+    public EmailType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException
     {
         final String jsonValue = parser.getText();
         return EmailType.valueOf(jsonValue.toUpperCase());

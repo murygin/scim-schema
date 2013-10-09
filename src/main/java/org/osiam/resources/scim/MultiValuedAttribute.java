@@ -36,10 +36,10 @@ public abstract class MultiValuedAttribute extends BasicMultiValuedAttribute {
 	 * The Builder class is used to construct instances of the
 	 * {@link BasicMultiValuedAttribute}
 	 */
-	public static abstract class Builder<T> extends
+	public abstract static class Builder<T> extends
 			BasicMultiValuedAttribute.Builder<T> {
 
-		protected Boolean primary;
+		protected Boolean primary;   // NOSONAR - false-positive from clover; visibility can't be private
 
 		protected Builder() {
 		}

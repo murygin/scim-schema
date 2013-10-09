@@ -11,7 +11,7 @@ import org.osiam.resources.type.MemberType;
  * Java class for members of a group which can be a group or a user.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Member{
+public class Member{ // NOSONAR - Builder constructs instances of this class
 	private MemberType type;
     private String value;
     private String operation;
@@ -48,7 +48,7 @@ public class Member{
      *
      */
     public MemberType getType() {
-        return type;
+        return type; //TODO SONAR: to be seen how the server will fill this field (reflection or setter)
     }  
     
     /**
@@ -69,7 +69,7 @@ public class Member{
      *     {@link String }
      */
     public String getDisplay() {
-        return display;
+        return display;//TODO SONAR: to be seen how the server will fill this field (reflection or setter)
     }
     
     /**
