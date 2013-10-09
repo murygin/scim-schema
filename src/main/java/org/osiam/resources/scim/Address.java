@@ -10,8 +10,8 @@ import org.osiam.resources.type.AddressType;
 /**
  * Java class for address complex type.
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Address { // NOSONAR - Builder constructs instances of this class
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
+public class Address {                                     // NOSONAR - Builder constructs instances of this class
 
     private String formatted;
     private String streetAddress;

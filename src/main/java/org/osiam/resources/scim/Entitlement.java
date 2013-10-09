@@ -9,15 +9,15 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 /**
  * Java class for Entitlement complex type.
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Entitlement extends MultiValuedAttribute{
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
+public class Entitlement extends MultiValuedAttribute{   // NOSONAR - Builder constructs instances of this class
 
 	private String type;
 	
     /**
      * needed for json serializing
      */
-	public Entitlement() {	}
+	private Entitlement() {	}
 	
 	private Entitlement(Builder builder) {
 		super(builder);

@@ -4,6 +4,7 @@
 package org.osiam.resources.helper;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.DeserializationContext;
@@ -20,7 +21,7 @@ public class JsonGroupRefTypeDeserializer extends JsonDeserializer<GroupRefType>
     public GroupRefType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException
     {
         final String jsonValue = parser.getText();
-        return GroupRefType.valueOf(jsonValue.toUpperCase());
+        return GroupRefType.valueOf(jsonValue.toUpperCase(Locale.ENGLISH));
     }
 
 }

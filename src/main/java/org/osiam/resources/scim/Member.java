@@ -10,8 +10,8 @@ import org.osiam.resources.type.MemberType;
 /**
  * Java class for members of a group which can be a group or a user.
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Member{ // NOSONAR - Builder constructs instances of this class
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
+public class Member{                                      // NOSONAR - Builder constructs instances of this class
 	private MemberType type;
     private String value;
     private String operation;

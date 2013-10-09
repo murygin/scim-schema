@@ -4,6 +4,7 @@
 package org.osiam.resources.helper;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.DeserializationContext;
@@ -20,7 +21,7 @@ public class JsonAddressTypeDeserializer extends JsonDeserializer<AddressType> {
     public AddressType deserialize(final JsonParser parser, final DeserializationContext context) throws IOException
     {
         final String jsonValue = parser.getText();
-        return AddressType.valueOf(jsonValue.toUpperCase());
+        return AddressType.valueOf(jsonValue.toUpperCase(Locale.ENGLISH));
     }
 
 }

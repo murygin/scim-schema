@@ -15,8 +15,8 @@ import org.osiam.resources.helper.JsonDateSerializer;
 /**
  * Java class for meta complex type.
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Meta { // NOSONAR - Builder constructs instances of this class
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
+public class Meta {                                       // NOSONAR - Builder constructs instances of this class
 
     @JsonSerialize(using=JsonDateSerializer.class)
     private Date created;

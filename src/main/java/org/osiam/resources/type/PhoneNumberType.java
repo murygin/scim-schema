@@ -7,7 +7,6 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.helper.JsonPhoneNumberTypeDeserializer;
 import org.osiam.resources.helper.JsonPhoneNumberTypeSerializer;
-import org.osiam.resources.scim.PhoneNumber;
 
 /**
  * possible types for the  {@link PhoneNumber } 

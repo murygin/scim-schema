@@ -7,7 +7,6 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.helper.JsonMemberTypeDeserializer;
 import org.osiam.resources.helper.JsonMemberTypeSerializer;
-import org.osiam.resources.scim.Member;
 
 /**
  * possible types for the  {@link Member } 

@@ -19,6 +19,7 @@ public abstract class BasicMultiValuedAttribute {
     protected BasicMultiValuedAttribute(@SuppressWarnings("rawtypes") Builder builder) {
         this.value = builder.value;
         this.operation = builder.operation;
+        this.display = builder.display;
     }
 
     /**
@@ -62,6 +63,7 @@ public abstract class BasicMultiValuedAttribute {
     	protected String value;      // NOSONAR - false-positive from clover; visibility can't be private
         protected String operation;  // NOSONAR - false-positive from clover; visibility can't be private
         protected T builder;         // NOSONAR - false-positive from clover; visibility can't be private
+        private String display; //TODO SONAR: has to be seen how the server will fill this field, with reflection or a setter
         
         protected void setBuilder(T self){
         	this.builder = self;

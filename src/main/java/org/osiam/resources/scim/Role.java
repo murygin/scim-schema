@@ -9,8 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 /**
  * Java class for role complex type.
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Role extends MultiValuedAttribute{ // NOSONAR - Builder constructs instances of this class
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
+public class Role extends MultiValuedAttribute{           // NOSONAR - Builder constructs instances of this class
 
     /**
      * needed for json serializing

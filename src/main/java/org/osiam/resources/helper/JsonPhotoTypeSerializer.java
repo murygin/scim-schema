@@ -4,6 +4,7 @@
 package org.osiam.resources.helper;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.JsonSerializer;
@@ -19,6 +20,6 @@ public class JsonPhotoTypeSerializer extends JsonSerializer<PhotoType> {
 	  @Override
 	  public void serialize(PhotoType value, JsonGenerator generator, SerializerProvider provider) 
 			  throws IOException {
-			  generator.writeString(value.name().toLowerCase());
+			  generator.writeString(value.name().toLowerCase(Locale.ENGLISH));
 	  }
 }

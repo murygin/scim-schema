@@ -7,7 +7,6 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.osiam.resources.helper.JsonImsTypeDeserializer;
 import org.osiam.resources.helper.JsonImsTypeSerializer;
-import org.osiam.resources.scim.Ims;
 
 /**
  * possible types for the  {@link Ims } 
