@@ -16,8 +16,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * @see <a href="http://tools.ietf.org/html/draft-ietf-scim-core-schema-02#section-6">SCIM 02 User definition</a>
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class User extends CoreResource {
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
+public class User extends CoreResource {                 // NOSONAR - Builder constructs instances of this class
 
     private String userName;
     private Name name;

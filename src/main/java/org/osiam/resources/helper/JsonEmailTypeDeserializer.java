@@ -9,7 +9,6 @@ import java.util.Locale;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
-import org.osiam.resources.scim.Email;
 import org.osiam.resources.type.EmailType;
 
 /**

@@ -41,7 +41,7 @@ public class Entitlement extends MultiValuedAttribute{   // NOSONAR - Builder co
      */
 	public static class Builder extends MultiValuedAttribute.Builder<Entitlement.Builder>{
 
-		protected String type;
+		private String type;
 		
 		public Builder(){
 			setBuilder(this);

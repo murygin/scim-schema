@@ -33,7 +33,7 @@ public abstract class Resource {
         protected String id; // NOSONAR - fields are needed in child classes
         protected Meta meta; // NOSONAR - fields are needed in child classes
         protected Set<String> schemas = Constants.CORE_SCHEMAS; // NOSONAR - fields are needed in child classes
-        protected T builder;
+        protected T builder; // NOSONAR - fields are needed in child classes
         
         protected void setBuilder(T self){
         	this.builder = self;
