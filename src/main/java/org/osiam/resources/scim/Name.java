@@ -11,7 +11,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * Java class for name complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class Name {
+public class Name { // NOSONAR - Builder constructs instances of this class
 
     private String formatted;
     private String familyName;

@@ -57,7 +57,7 @@ public abstract class BasicMultiValuedAttribute {
         return operation;
     }
 
-    public static abstract class Builder<T>{
+    public abstract static class Builder<T>{
 
     	protected String value;      // NOSONAR - false-positive from clover; visibility can't be private
         protected String operation;  // NOSONAR - false-positive from clover; visibility can't be private

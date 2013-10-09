@@ -19,7 +19,7 @@ public class JsonImsTypeSerializer extends JsonSerializer<ImsType> {
 
 	  @Override
 	  public void serialize(ImsType value, JsonGenerator generator, SerializerProvider provider) 
-			  throws IOException, JsonProcessingException {
+			  throws IOException {
 			  generator.writeString(value.name().toLowerCase());
 	  }
 }

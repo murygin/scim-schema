@@ -6,7 +6,6 @@ package org.osiam.resources.helper;
 import java.io.IOException;
 
 import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.JsonSerializer;
 import org.codehaus.jackson.map.SerializerProvider;
 import org.osiam.resources.type.PhoneNumberType;
@@ -19,7 +18,7 @@ public class JsonPhoneNumberTypeSerializer extends JsonSerializer<PhoneNumberTyp
 
 	  @Override
 	  public void serialize(PhoneNumberType value, JsonGenerator generator, SerializerProvider provider) 
-			  throws IOException, JsonProcessingException {
+			  throws IOException {
 			  generator.writeString(value.name().toLowerCase());
 	  }
 }

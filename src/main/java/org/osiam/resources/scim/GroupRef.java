@@ -11,7 +11,7 @@ import org.osiam.resources.type.GroupRefType;
  * Java class for Reference of a Group where a User is member of.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
-public class GroupRef extends BasicMultiValuedAttribute{
+public class GroupRef extends BasicMultiValuedAttribute{ // NOSONAR - Builder constructs instances of this class
 
 	private GroupRefType type;
 	

@@ -19,7 +19,7 @@ public class JsonEmailTypeSerializer extends JsonSerializer<EmailType> {
 
 	  @Override
 	  public void serialize(EmailType value, JsonGenerator generator, SerializerProvider provider) 
-			  throws IOException, JsonProcessingException {
+			  throws IOException {
 			  generator.writeString(value.name().toLowerCase());
 	  }
 }
