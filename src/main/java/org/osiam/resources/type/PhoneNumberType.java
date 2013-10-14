@@ -13,7 +13,7 @@ import org.osiam.resources.helper.JsonPhoneNumberTypeSerializer;
  */
 @JsonSerialize (using = JsonPhoneNumberTypeSerializer.class)
 @JsonDeserialize (using = JsonPhoneNumberTypeDeserializer.class)
-public enum PhoneNumberType{
+public enum PhoneNumberType implements GenericType<PhoneNumberType>{
 	WORK,
 	HOME,
 	MOBILE,
@@ -21,4 +21,14 @@ public enum PhoneNumberType{
 	PAGER,
 	OTHER
 	;
+
+	@Override
+	public PhoneNumberType fromString(String type) {
+		return PhoneNumberType.valueOf(type.toUpperCase());
+	}
+	
+	@Override
+	public String toString(){
+		return this.toString().toLowerCase();
+	}
 }

@@ -13,8 +13,19 @@ import org.osiam.resources.helper.JsonPhotoTypeSerializer;
  */
 @JsonSerialize (using = JsonPhotoTypeSerializer.class)
 @JsonDeserialize (using = JsonPhotoTypeDeserializer.class)
-public enum PhotoType{
+public enum PhotoType implements GenericType<PhotoType>{
 	PHOTO,
 	THUMBNAIL
 	;
+
+	@Override
+	public PhotoType fromString(String type) {
+		return PhotoType.valueOf(type.toUpperCase());
+	}
+	
+	@Override
+	public String toString(){
+		return this.toString().toLowerCase();
+	}
+	
 }

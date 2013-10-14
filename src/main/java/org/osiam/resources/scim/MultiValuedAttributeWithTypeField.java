@@ -9,36 +9,22 @@ import org.osiam.resources.type.GenericType;
 /**
  * Java class for multiValuedAttribute complex type.
  */
-public abstract class MultiValuedAttribute<E extends GenericType<E>> extends MultiValuedAttributeBasicFields {
+public abstract class MultiValuedAttributeWithTypeField<E extends GenericType<E>> extends MultiValuedAttributeBasicFields {
 
-	private Boolean primary;
 	protected E type;
 	
-
 	public E getType() {
 		return type;
 	}
 
-	protected MultiValuedAttribute() {
+	protected MultiValuedAttributeWithTypeField() {
 		super();
 	}
 
-	protected MultiValuedAttribute(@SuppressWarnings("rawtypes") Builder builder) {
+	protected MultiValuedAttributeWithTypeField(@SuppressWarnings("rawtypes") Builder builder) {
 		super(builder);
-		this.primary = builder.primary;
+		this.type = (E) builder.type;
 	}
-
-    /**
-     * Gets the value of the primary property.
-     *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
-     */
-    public Boolean isPrimary() {
-        return primary;
-    }
 
 	/**
 	 * The Builder class is used to construct instances of the
@@ -47,7 +33,6 @@ public abstract class MultiValuedAttribute<E extends GenericType<E>> extends Mul
 	public abstract static class Builder<T,E extends GenericType<E>> extends
 			MultiValuedAttributeBasicFields.Builder<T> {
 
-		protected Boolean primary;   // NOSONAR - false-positive from clover; visibility can't be private
 		protected E type;
 		
 		protected Builder() {
@@ -58,17 +43,12 @@ public abstract class MultiValuedAttribute<E extends GenericType<E>> extends Mul
 		 * attribute
 		 * 
 		 * @param old
-		 *            old {@link MultiValuedAttribute} to be changed or copied
+		 *            old {@link MultiValuedAttributeWithTypeField} to be changed or copied
 		 */
-		protected Builder(MultiValuedAttribute<E> old) {
+		protected Builder(MultiValuedAttributeWithTypeField<E> old) {
 			super(old);
-        	this.primary = old.primary;
+			this.type = old.type;
 		}
-
-        public T setPrimary(Boolean primary) {
-            this.primary = primary;
-            return builder;
-        }
 
         /**
          * sets the attribute to the builder

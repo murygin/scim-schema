@@ -11,10 +11,8 @@ import org.osiam.resources.type.GroupRefType;
  * Java class for Reference of a Group where a User is member of.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
-public class GroupRef extends BasicMultiValuedAttribute{ // NOSONAR - Builder constructs instances of this class
+public class GroupRef extends MultiValuedAttributeWithTypeField<GroupRefType>{ // NOSONAR - Builder constructs instances of this class
 
-	private GroupRefType type;
-	
     /**
      * needed for json serializing
      */
@@ -23,26 +21,12 @@ public class GroupRef extends BasicMultiValuedAttribute{ // NOSONAR - Builder co
 	private GroupRef(Builder builder) {
 		super(builder);
 		this.type = builder.type;
-	}
-	
-    /**
-     * Gets the value of the type property.
-     *
-     * @return
-     *     possible object is
-     *     {@link GroupRefType }
-     *
-     */
-    public GroupRefType getType() {
-        return type;
-    }  
+	} 
 	
     /**
      * The Builder class is used to construct instances of the {@link GroupRef}
      */
-	public static class Builder extends BasicMultiValuedAttribute.Builder<GroupRef.Builder>{
-
-		private GroupRefType type;
+	public static class Builder extends MultiValuedAttributeWithTypeField.Builder<GroupRef.Builder, GroupRefType>{
 		
 		public Builder(){
 			setBuilder(this);
@@ -54,7 +38,6 @@ public class GroupRef extends BasicMultiValuedAttribute{ // NOSONAR - Builder co
 		 */
 		public Builder (GroupRef old){
 			super(old);
-			this.type = old.type;
 			setBuilder(this);
 		}
 		

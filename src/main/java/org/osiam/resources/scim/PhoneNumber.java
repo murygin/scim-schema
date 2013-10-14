@@ -11,7 +11,7 @@ import org.osiam.resources.type.PhoneNumberType;
  * Java class for phone number complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
-public class PhoneNumber extends MultiValuedAttribute{   // NOSONAR - Builder constructs instances of this class
+public class PhoneNumber extends MultiValuedAttributeAllFields<PhoneNumberType>{   // NOSONAR - Builder constructs instances of this class
 
 	private PhoneNumberType type;
 	
@@ -26,24 +26,10 @@ public class PhoneNumber extends MultiValuedAttribute{   // NOSONAR - Builder co
 	}
 	
     /**
-     * Gets the value of the type property.
-     *
-     * @return
-     *     possible object is
-     *     {@link PhoneNumberType }
-     *
-     */
-    public PhoneNumberType getType() {
-        return type;
-    }  
-	
-    /**
      * The Builder class is used to construct instances of the {@link PhoneNumber}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<PhoneNumber.Builder>{
+	public static class Builder extends MultiValuedAttributeAllFields.Builder<PhoneNumber.Builder, PhoneNumberType>{
 
-		private PhoneNumberType type;
-		
 		public Builder(){
 			setBuilder(this);
 		}
@@ -54,18 +40,7 @@ public class PhoneNumber extends MultiValuedAttribute{   // NOSONAR - Builder co
 		 */
 		public Builder(PhoneNumber old){
 			super(old);
-			this.type = old.type;
 			setBuilder(this);
-		}
-		
-        /**
-         * sets the attribute to the builder
-         * @param type the wanted type
-         * @return the builder itself
-         */
-		public Builder setType(PhoneNumberType type){
-			this.type = type;
-			return this;
 		}
 		
         /**

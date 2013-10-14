@@ -5,14 +5,13 @@
 package org.osiam.resources.scim;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.osiam.resources.type.EntitlementType;
 
 /**
  * Java class for Entitlement complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
-public class Entitlement extends MultiValuedAttribute{   // NOSONAR - Builder constructs instances of this class
-
-	private String type;
+public class Entitlement extends MultiValuedAttributeAllFields<EntitlementType>{   // NOSONAR - Builder constructs instances of this class
 	
     /**
      * needed for json serializing
@@ -21,27 +20,12 @@ public class Entitlement extends MultiValuedAttribute{   // NOSONAR - Builder co
 	
 	private Entitlement(Builder builder) {
 		super(builder);
-		this.type = builder.type;
 	}
-	
-    /**
-     * Gets the value of the type property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getType() {
-        return type;
-    }  
 	
     /**
      * The Builder class is used to construct instances of the {@link Entitlement}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<Entitlement.Builder>{
-
-		private String type;
+	public static class Builder extends MultiValuedAttributeAllFields.Builder<Entitlement.Builder, EntitlementType>{
 		
 		public Builder(){
 			setBuilder(this);
@@ -54,7 +38,6 @@ public class Entitlement extends MultiValuedAttribute{   // NOSONAR - Builder co
 		public Builder(Entitlement old){
 			super(old);
 			setBuilder(this);
-    		this.type = old.type;
 		}
 		
         /**
@@ -64,16 +47,6 @@ public class Entitlement extends MultiValuedAttribute{   // NOSONAR - Builder co
          */
         public Entitlement build() {
             return new Entitlement(this);
-        }
-        
-        /**
-         * sets the attribute to the builder
-         * @param type the wanted type
-         * @return the builder itself
-         */
-        public Builder setType(String type) {
-            this.type = type;
-            return this;
         }
     }
 

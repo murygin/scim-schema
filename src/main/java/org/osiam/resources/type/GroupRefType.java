@@ -13,8 +13,18 @@ import org.osiam.resources.helper.JsonGroupRefTypeSerializer;
  */
 @JsonSerialize (using = JsonGroupRefTypeSerializer.class)
 @JsonDeserialize (using = JsonGroupRefTypeDeserializer.class)
-public enum GroupRefType{
+public enum GroupRefType implements GenericType<GroupRefType>{
 	DIRECT,
 	INDIRECT
 	;
+
+	@Override
+	public GroupRefType fromString(String type) {
+		return GroupRefType.valueOf(type.toUpperCase());
+	}
+	
+	@Override
+	public String toString(){
+		return this.toString().toLowerCase();
+	}
 }

@@ -18,6 +18,8 @@
 package org.osiam.resources.scim
 
 import org.codehaus.jackson.map.ObjectMapper
+import org.osiam.resources.type.AddressType;
+
 import spock.lang.Specification
 
 class UserJsonTest extends Specification {

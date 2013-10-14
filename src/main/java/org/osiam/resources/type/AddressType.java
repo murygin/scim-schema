@@ -14,9 +14,20 @@ import org.osiam.resources.helper.JsonAddressTypeSerializer;
  */
 @JsonSerialize (using = JsonAddressTypeSerializer.class)
 @JsonDeserialize (using = JsonAddressTypeDeserializer.class)
-public enum AddressType {
+public enum AddressType implements GenericType<AddressType> {
 	WORK,
 	HOME,
 	OTHER
 	;
+
+	@Override
+	public AddressType fromString(String type) {
+		return AddressType.valueOf(type.toUpperCase());
+	}
+
+	@Override
+	public String toString(){
+		return this.toString().toLowerCase();
+	}
+
 }

@@ -23,6 +23,7 @@
 
 package org.osiam.resources.scim
 
+import org.osiam.resources.type.EntitlementType
 import spock.lang.Specification
 
 class MultiValuedAttributeTest extends Specification {
@@ -31,7 +32,7 @@ class MultiValuedAttributeTest extends Specification {
         def builder = new Entitlement.Builder()
                 .setOperation("op")
                 .setPrimary(true)
-                .setType("type")
+                .setType(new EntitlementType("type"))
                 .setValue("value")
         when:
         def mva = builder.build()

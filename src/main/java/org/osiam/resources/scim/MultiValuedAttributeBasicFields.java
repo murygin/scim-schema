@@ -8,15 +8,15 @@ package org.osiam.resources.scim;
 /**
  * Java class for multiValuedAttribute complex type.
  */
-public abstract class BasicMultiValuedAttribute {
+public abstract class MultiValuedAttributeBasicFields {
 
     protected String value;      // NOSONAR - false-positive from clover; visibility can't be private
     protected String display;    // NOSONAR - false-positive from clover; visibility can't be private
     protected String operation;  // NOSONAR - false-positive from clover; visibility can't be private
 
-    protected BasicMultiValuedAttribute() {    }
+    protected MultiValuedAttributeBasicFields() {    }
     
-    protected BasicMultiValuedAttribute(@SuppressWarnings("rawtypes") Builder builder) {
+    protected MultiValuedAttributeBasicFields(@SuppressWarnings("rawtypes") Builder builder) {
         this.value = builder.value;
         this.operation = builder.operation;
         this.display = builder.display;
@@ -72,7 +72,7 @@ public abstract class BasicMultiValuedAttribute {
         protected Builder(){
         }
         
-        protected Builder(BasicMultiValuedAttribute old){
+        protected Builder(MultiValuedAttributeBasicFields old){
         	this.value = old.value;
         	this.operation = old.operation;
         }

@@ -13,9 +13,19 @@ import org.osiam.resources.helper.JsonEmailTypeSerializer;
  */
 @JsonSerialize (using = JsonEmailTypeSerializer.class)
 @JsonDeserialize (using = JsonEmailTypeDeserializer.class)
-public enum EmailType{
+public enum EmailType implements GenericType<EmailType> {
 	WORK,
 	HOME,
 	OTHER
 	;
+
+	@Override
+	public EmailType fromString(String type) {
+		return EmailType.valueOf(type.toUpperCase());
+	}
+	
+	@Override
+	public String toString(){
+		return this.toString().toLowerCase();
+	}
 }

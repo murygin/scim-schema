@@ -11,10 +11,8 @@ import org.osiam.resources.type.PhotoType;
  * Java class for a url address of a photo.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
-public class Photo extends MultiValuedAttribute{          // NOSONAR - Builder constructs instances of this class
+public class Photo extends MultiValuedAttributeAllFields<PhotoType>{          // NOSONAR - Builder constructs instances of this class
 
-	private PhotoType type;
-	
     /**
      * needed for json serializing
      */
@@ -22,28 +20,13 @@ public class Photo extends MultiValuedAttribute{          // NOSONAR - Builder c
 	
 	private Photo(Builder builder) {
 		super(builder);
-		this.type = builder.type;
 	}
-	
-    /**
-     * Gets the value of the type property.
-     *
-     * @return
-     *     possible object is
-     *     {@link PhotoType }
-     *
-     */
-    public PhotoType getType() {
-        return type;
-    }  
 	
     /**
      * The Builder class is used to construct instances of the {@link Photo}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<Photo.Builder>{
+	public static class Builder extends MultiValuedAttributeAllFields.Builder<Photo.Builder, PhotoType>{
 
-		private PhotoType type;
-		
 		public Builder(){
 			setBuilder(this);
 		}
@@ -54,18 +37,7 @@ public class Photo extends MultiValuedAttribute{          // NOSONAR - Builder c
 		 */
 		public Builder(Photo old){
 			super(old);
-			this.type = old.type;
 			setBuilder(this);
-		}
-		
-        /**
-         * sets the attribute to the builder
-         * @param type the wanted type
-         * @return the builder itself
-         */
-		public Builder setType(PhotoType type){
-			this.type = type;
-			return this;
 		}
 		
         /**

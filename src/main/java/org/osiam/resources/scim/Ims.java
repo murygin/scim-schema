@@ -11,10 +11,8 @@ import org.osiam.resources.type.ImsType;
  * Java class for ims complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
-public class Ims extends MultiValuedAttribute{           // NOSONAR - Builder constructs instances of this class
+public class Ims extends MultiValuedAttributeAllFields<ImsType>{           // NOSONAR - Builder constructs instances of this class
 
-	private ImsType type;
-	
     /**
      * needed for json serializing
      */
@@ -26,24 +24,10 @@ public class Ims extends MultiValuedAttribute{           // NOSONAR - Builder co
 	}
 	
     /**
-     * Gets the value of the type property.
-     *
-     * @return
-     *     possible object is
-     *     {@link ImsType }
-     *
-     */
-    public ImsType getType() {
-        return type;
-    }  
-	
-    /**
      * The Builder class is used to construct instances of the {@link Ims}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<Ims.Builder>{
+	public static class Builder extends MultiValuedAttributeAllFields.Builder<Ims.Builder, ImsType>{
 
-		private ImsType type;
-		
 		public Builder(){
 			setBuilder(this);
 		}
@@ -54,18 +38,7 @@ public class Ims extends MultiValuedAttribute{           // NOSONAR - Builder co
 		 */
 		public Builder (Ims old){
 			super(old);
-			this.type = old.type;
 			setBuilder(this);
-		}
-		
-        /**
-         * sets the attribute to the builder
-         * @param type the wanted type
-         * @return the builder itself
-         */
-		public Builder setType(ImsType type){
-			this.type = type;
-			return this;
 		}
 		
         /**

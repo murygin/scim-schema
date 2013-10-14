@@ -10,7 +10,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * Java class for X509Certificate complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)    // NOSONAR - Builder constructs instances of this class
-public class X509Certificate extends MultiValuedAttribute{  // NOSONAR - Builder constructs instances of this class
+public class X509Certificate extends MultiValuedAttributeWithPrimaryField{  // NOSONAR - Builder constructs instances of this class
 
     /**
      * needed for json serializing
@@ -24,7 +24,7 @@ public class X509Certificate extends MultiValuedAttribute{  // NOSONAR - Builder
     /**
      * The Builder class is used to construct instances of the {@link X509Certificate}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<X509Certificate.Builder>{
+	public static class Builder extends MultiValuedAttributeWithPrimaryField.Builder<X509Certificate.Builder>{
 
 		public Builder(){
 			setBuilder(this);

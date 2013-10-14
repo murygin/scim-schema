@@ -10,9 +10,7 @@ import org.osiam.resources.type.EmailType;
  * Java class for email complex type.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
-public class Email extends MultiValuedAttribute{         // NOSONAR - Builder constructs instances of this class
-
-	private EmailType type;
+public class Email extends MultiValuedAttributeAllFields<EmailType>{         // NOSONAR - Builder constructs instances of this class
 	
     /**
      * needed for json serializing
@@ -23,25 +21,11 @@ public class Email extends MultiValuedAttribute{         // NOSONAR - Builder co
 		super(builder);
 		this.type = builder.type;
 	}
-	
-    /**
-     * Gets the value of the type property.
-     *
-     * @return
-     *     possible object is
-     *     {@link EmailType }
-     *
-     */
-    public EmailType getType() {
-        return type;
-    }  
-	
+
     /**
      * The Builder class is used to construct instances of the {@link Email}
      */
-	public static class Builder extends MultiValuedAttribute.Builder<Email.Builder>{
-
-		private EmailType type;
+	public static class Builder extends MultiValuedAttributeAllFields.Builder<Email.Builder, EmailType>{
 		
 		public Builder(){
 			setBuilder(this);
@@ -53,19 +37,9 @@ public class Email extends MultiValuedAttribute{         // NOSONAR - Builder co
 		 */
 		public Builder (Email old){
 			super(old);
-			this.type = old.type;
 			setBuilder(this);
 		}
-		
-        /**
-         * sets the attribute to the builder
-         * @param type the wanted type
-         * @return the builder itself
-         */
-		public Builder setType(EmailType type){
-			this.type = type;
-			return this;
-		}
+	
 		
         /**
          * Construct the {@link Email} with the parameters passed to this builder.

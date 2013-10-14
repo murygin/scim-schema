@@ -4,26 +4,20 @@
 
 package org.osiam.resources.scim;
 
-import org.osiam.resources.type.GenericType;
 
 /**
  * Java class for multiValuedAttribute complex type.
  */
-public abstract class MultiValuedAttribute<E extends GenericType<E>> extends MultiValuedAttributeBasicFields {
+public abstract class MultiValuedAttributeWithPrimaryField 
+	extends MultiValuedAttributeBasicFields implements PrimaryMultiValuedAttribute{
 
 	private Boolean primary;
-	protected E type;
-	
 
-	public E getType() {
-		return type;
-	}
-
-	protected MultiValuedAttribute() {
+	protected MultiValuedAttributeWithPrimaryField() {
 		super();
 	}
 
-	protected MultiValuedAttribute(@SuppressWarnings("rawtypes") Builder builder) {
+	protected MultiValuedAttributeWithPrimaryField(@SuppressWarnings("rawtypes") Builder builder) {
 		super(builder);
 		this.primary = builder.primary;
 	}
@@ -44,11 +38,10 @@ public abstract class MultiValuedAttribute<E extends GenericType<E>> extends Mul
 	 * The Builder class is used to construct instances of the
 	 * {@link MultiValuedAttributeBasicFields}
 	 */
-	public abstract static class Builder<T,E extends GenericType<E>> extends
-			MultiValuedAttributeBasicFields.Builder<T> {
+	public abstract static class Builder<T> extends
+			MultiValuedAttributeBasicFields.Builder<T> implements PrimaryMultiValuedAttribute.Builder<T>{
 
 		protected Boolean primary;   // NOSONAR - false-positive from clover; visibility can't be private
-		protected E type;
 		
 		protected Builder() {
 		}
@@ -58,9 +51,9 @@ public abstract class MultiValuedAttribute<E extends GenericType<E>> extends Mul
 		 * attribute
 		 * 
 		 * @param old
-		 *            old {@link MultiValuedAttribute} to be changed or copied
+		 *            old {@link MultiValuedAttributeWithPrimaryField} to be changed or copied
 		 */
-		protected Builder(MultiValuedAttribute<E> old) {
+		protected Builder(MultiValuedAttributeWithPrimaryField old) {
 			super(old);
         	this.primary = old.primary;
 		}
@@ -69,15 +62,5 @@ public abstract class MultiValuedAttribute<E extends GenericType<E>> extends Mul
             this.primary = primary;
             return builder;
         }
-
-        /**
-         * sets the attribute to the builder
-         * @param type the wanted type
-         * @return the builder itself
-         */
-		public T setType(E type){
-			this.type = type;
-			return builder;
-		}
 	}
 }

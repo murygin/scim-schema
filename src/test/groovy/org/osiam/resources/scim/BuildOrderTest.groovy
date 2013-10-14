@@ -25,6 +25,7 @@ package org.osiam.resources.scim
 
 import org.codehaus.groovy.runtime.typehandling.GroovyCastException
 import org.osiam.resources.type.EmailType;
+import org.osiam.resources.type.EntitlementType
 import org.osiam.resources.type.ImsType;
 import org.osiam.resources.type.PhoneNumberType;
 import org.osiam.resources.type.PhotoType;
@@ -67,7 +68,7 @@ class BuildOrderTest extends Specification {
         when: "an Entitlement object is built with operation first"
         Entitlement builder = new Entitlement.Builder()
                 .setOperation("op")
-                .setType("type")
+                .setType(new EntitlementType("type"))
                 .build()
 				
 		then: "the return should be an Entitlement so no cast exception should be thrown"
@@ -75,7 +76,7 @@ class BuildOrderTest extends Specification {
 
 		and: "all values should be set correctly"
 		builder.operation == "op"
-		builder.type == "type"
+		builder.type == new EntitlementType("type")
     }
 
     def "ims should be able to build bottom to top"() {

@@ -13,8 +13,23 @@ import org.osiam.resources.helper.JsonMemberTypeSerializer;
  */
 @JsonSerialize (using = JsonMemberTypeSerializer.class)
 @JsonDeserialize (using = JsonMemberTypeDeserializer.class)
-public enum MemberType{
-	USER,
-	GROUP
+public enum MemberType implements GenericType<MemberType>{
+	USER ("User"),
+	GROUP ("Group")
 	;
+
+	private String value;
+	
+	private MemberType(String value){
+		this.value = value;
+	}
+	@Override
+	public MemberType fromString(String type) {
+		return MemberType.valueOf(type.toUpperCase());
+	}
+	
+	@Override
+	public String toString(){
+		return value;
+	}
 }

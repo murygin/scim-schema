@@ -26,6 +26,7 @@ package org.osiam.resources.scim
 import org.osiam.resources.scim.Photo.Builder;
 import org.osiam.resources.type.AddressType;
 import org.osiam.resources.type.EmailType;
+import org.osiam.resources.type.EntitlementType
 import org.osiam.resources.type.GroupRefType;
 import org.osiam.resources.type.ImsType;
 import org.osiam.resources.type.PhoneNumberType;
@@ -84,7 +85,7 @@ class OwnObjectBuilderTest extends Specification {
 		def oldAttribute = new Entitlement.Builder()
 				.setOperation("operation")
 				.setPrimary(true)
-				.setType("type")
+				.setType(new EntitlementType("type"))
 				.setValue("value")
 				.build();
 		

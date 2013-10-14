@@ -32,7 +32,6 @@ public class Name {                                       // NOSONAR - Builder c
         this.middleName = builder.middleName;
         this.honorificPrefix = builder.honorificPrefix;
         this.honorificSuffix = builder.honorificSuffix;
-
     }
 
     /**

@@ -13,7 +13,7 @@ import org.osiam.resources.helper.JsonImsTypeSerializer;
  */
 @JsonSerialize (using = JsonImsTypeSerializer.class)
 @JsonDeserialize (using = JsonImsTypeDeserializer.class)
-public enum ImsType{
+public enum ImsType implements GenericType<ImsType>{
 	AIM,
 	GTALK,
 	ICQ,
@@ -23,4 +23,14 @@ public enum ImsType{
 	QQ,
 	YAHOO
 	;
+
+	@Override
+	public ImsType fromString(String type) {
+		return ImsType.valueOf(type);
+	}
+	
+	@Override
+	public String toString(){
+		return this.toString().toLowerCase();
+	}
 }

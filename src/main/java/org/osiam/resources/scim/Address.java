@@ -21,7 +21,7 @@ public class Address {                                     // NOSONAR - Builder 
     private String country;
     private String operation;
     private AddressType type;
-
+    
     /**
      * needed for json serializing
      */
