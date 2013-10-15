@@ -21,13 +21,12 @@ public enum AddressType implements GenericType<AddressType> {
 	;
 
 	@Override
-	public AddressType fromString(String type) {
-		return AddressType.valueOf(type.toUpperCase());
-	}
-
-	@Override
 	public String toString(){
 		return this.toString().toLowerCase();
+	}
+	
+	public static AddressType fromString(String type) {
+		return AddressType.valueOf(type.toUpperCase());
 	}
 
 }

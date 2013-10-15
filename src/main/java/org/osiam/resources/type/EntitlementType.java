@@ -7,8 +7,7 @@ public class EntitlementType implements GenericType<EntitlementType>{
 		this.type = type;
 	}
 	
-	@Override
-	public EntitlementType fromString(String type) {
+	public static EntitlementType fromString(String type) {
 		return new EntitlementType(type);
 	}
 	

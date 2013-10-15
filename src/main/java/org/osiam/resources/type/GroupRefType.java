@@ -19,12 +19,11 @@ public enum GroupRefType implements GenericType<GroupRefType>{
 	;
 
 	@Override
-	public GroupRefType fromString(String type) {
-		return GroupRefType.valueOf(type.toUpperCase());
-	}
-	
-	@Override
 	public String toString(){
 		return this.toString().toLowerCase();
+	}
+	
+	public static GroupRefType fromString(String type) {
+		return GroupRefType.valueOf(type.toUpperCase());
 	}
 }

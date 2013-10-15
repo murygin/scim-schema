@@ -18,14 +18,13 @@ public enum EmailType implements GenericType<EmailType> {
 	HOME,
 	OTHER
 	;
-
-	@Override
-	public EmailType fromString(String type) {
-		return EmailType.valueOf(type.toUpperCase());
-	}
 	
 	@Override
 	public String toString(){
 		return this.toString().toLowerCase();
+	}
+	
+	public static EmailType fromString(String type) {
+		return EmailType.valueOf(type.toUpperCase());
 	}
 }

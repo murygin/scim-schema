@@ -63,7 +63,7 @@ public abstract class MultiValuedAttributeBasicFields {
     	protected String value;      // NOSONAR - false-positive from clover; visibility can't be private
         protected String operation;  // NOSONAR - false-positive from clover; visibility can't be private
         protected T builder;         // NOSONAR - false-positive from clover; visibility can't be private
-        private String display; //TODO SONAR: has to be seen how the server will fill this field, with reflection or a setter
+        protected String display; 	  // NOSONAR - false-positive from clover; visibility can't be private
         
         protected void setBuilder(T self){
         	this.builder = self;
@@ -77,13 +77,35 @@ public abstract class MultiValuedAttributeBasicFields {
         	this.operation = old.operation;
         }
         
+        /**
+         * here you can set the value of the actual attribute like the emailaddress or the id of a member
+         * @param value the actual value
+         * @return the Builder itself
+         */
         public T setValue(String value) {
             this.value = value;
             return builder;
         }
 
+        /**
+         * the wanted operation to be done. Actual "delete" is the only one supported
+         * @param operation the wanted operation
+         * @return the Builder itself
+         */
         public T setOperation(String operation) {
             this.operation = operation;
+            return builder;
+        }
+        
+        /**
+         * The set display method needs only be used by getting the attribute out of the database by the server.
+         * If this method is used to set a value while creating a attribute it will be ignored by the OSIAM server
+         * by saving it into the Database
+         * @param value the display value of the actual attribute
+         * @return the Builder itself
+         */
+        public T setDisplay(String value) {
+            this.display = value;
             return builder;
         }
     }

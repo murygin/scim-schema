@@ -23,12 +23,11 @@ public enum PhoneNumberType implements GenericType<PhoneNumberType>{
 	;
 
 	@Override
-	public PhoneNumberType fromString(String type) {
-		return PhoneNumberType.valueOf(type.toUpperCase());
-	}
-	
-	@Override
 	public String toString(){
 		return this.toString().toLowerCase();
+	}
+	
+	public static PhoneNumberType fromString(String type) {
+		return PhoneNumberType.valueOf(type.toUpperCase());
 	}
 }

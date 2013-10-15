@@ -104,6 +104,38 @@ public class Meta {                                       // NOSONAR - Builder c
         return resourceType;
     }
     
+    @Override
+    public boolean equals(Object o )
+    {
+      if ( o == null )
+        return false;
+
+      if ( o == this )
+        return true;
+
+      if (!(o instanceof Meta)){
+    	  return false;
+      }
+      
+      Meta that = (Meta) o;
+
+      return this.created == that.created
+    		  && this.lastModified == that.lastModified
+    		  && this.location == that.location
+    		  && this.version == that.version
+    		  && this.attributes == that.attributes
+    		  && this.resourceType == that.resourceType;
+    }
+    
+    @Override 
+    public int hashCode()
+    {
+      int result = this.created.hashCode() + this.lastModified.hashCode()
+    		  + this.location.hashCode() + this.version.hashCode()
+    		  + this.resourceType.hashCode();
+
+      return result;
+    }
     /**
      * The Builder class is used to construct instances of the {@link Meta}
      */

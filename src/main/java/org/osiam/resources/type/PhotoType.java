@@ -19,13 +19,12 @@ public enum PhotoType implements GenericType<PhotoType>{
 	;
 
 	@Override
-	public PhotoType fromString(String type) {
-		return PhotoType.valueOf(type.toUpperCase());
-	}
-	
-	@Override
 	public String toString(){
 		return this.toString().toLowerCase();
+	}
+	
+	public static PhotoType fromString(String type) {
+		return PhotoType.valueOf(type.toUpperCase());
 	}
 	
 }

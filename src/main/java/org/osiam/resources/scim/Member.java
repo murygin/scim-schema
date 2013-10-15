@@ -11,11 +11,7 @@ import org.osiam.resources.type.MemberType;
  * Java class for members of a group which can be a group or a user.
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY) // NOSONAR - Builder constructs instances of this class
-public class Member{                                      // NOSONAR - Builder constructs instances of this class
-	private MemberType type;
-    private String value;
-    private String operation;
-    private String display;
+public class Member extends MultiValuedAttributeWithTypeField<MemberType>{ // NOSONAR - Builder constructs instances of this class
 	
     /**
      * needed for json serializing
@@ -23,64 +19,16 @@ public class Member{                                      // NOSONAR - Builder c
     private Member(){    }
     
 	private Member(Builder builder) {
-		this.value = builder.value;
-		this.operation = builder.operation;
+		super(builder);
 	}
-	
-    /**
-     * Gets the value of the value property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getValue() {
-        return value;
-    }
-	
-    /**
-     * Gets the value of the type property.
-     *
-     * @return
-     *     possible object is
-     *     {@link MemberType }
-     *
-     */
-    public MemberType getType() {
-        return type; //TODO SONAR: to be seen how the server will fill this field (reflection or setter)
-    }  
-    
-    /**
-     * Gets the value of the operation property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getOperation() {
-        return operation;
-    }
-	
-    /**
-     * Gets the displayName (Group) or userName (User) from the Member
-     * @return possible object is
-     *     {@link String }
-     */
-    public String getDisplay() {
-        return display;//TODO SONAR: to be seen how the server will fill this field (reflection or setter)
-    }
     
     /**
      * The Builder class is used to construct instances of the {@link Member}
      */
-	public static class Builder{
-
-        private String value;
-        private String operation;
+	public static class Builder extends MultiValuedAttributeWithTypeField.Builder<Member.Builder, MemberType>{
         
         public Builder(){
+			setBuilder(this);
         }
         
         /**
@@ -88,36 +36,8 @@ public class Member{                                      // NOSONAR - Builder c
 		 * @param old old {@link Member} to be changed or copied
 		 */
         public Builder(Member old){
-        	this.value = old.value;
-        	this.operation = old.operation;
-        }
-        
-        /**
-         * 
-         * @param value the id from the User or the Group which is a member of the group
-         * @return the builder itself
-         */
-        public Builder setValue(String value) {
-            this.value = value;
-            return this;
-        }
-        
-        /**
-         * 
-         * @param value the Group which is a member of the group
-         * @return the builder itself
-         */
-        public Builder setValue(Group value) {
-            return setValue(value.getId());
-        }
-        
-        /**
-         * 
-         * @param value the User which is a member of the group
-         * @return the builder itself
-         */
-        public Builder setValue(User value) {
-            return setValue(value.getId());
+			super(old);
+			setBuilder(this);
         }
         
 		public Member build() {

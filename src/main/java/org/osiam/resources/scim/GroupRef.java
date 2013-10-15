@@ -20,7 +20,6 @@ public class GroupRef extends MultiValuedAttributeWithTypeField<GroupRefType>{ /
 	
 	private GroupRef(Builder builder) {
 		super(builder);
-		this.type = builder.type;
 	} 
 	
     /**

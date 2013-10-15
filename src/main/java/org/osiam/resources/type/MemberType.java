@@ -23,13 +23,13 @@ public enum MemberType implements GenericType<MemberType>{
 	private MemberType(String value){
 		this.value = value;
 	}
-	@Override
-	public MemberType fromString(String type) {
-		return MemberType.valueOf(type.toUpperCase());
-	}
-	
+
 	@Override
 	public String toString(){
-		return value;
+		return this.toString().toLowerCase();
+	}
+	
+	public static MemberType fromString(String type) {
+		return MemberType.valueOf(type.toUpperCase());
 	}
 }

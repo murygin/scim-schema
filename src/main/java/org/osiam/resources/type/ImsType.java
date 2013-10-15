@@ -25,12 +25,11 @@ public enum ImsType implements GenericType<ImsType>{
 	;
 
 	@Override
-	public ImsType fromString(String type) {
-		return ImsType.valueOf(type);
-	}
-	
-	@Override
 	public String toString(){
 		return this.toString().toLowerCase();
+	}
+	
+	public static ImsType fromString(String type) {
+		return ImsType.valueOf(type.toUpperCase());
 	}
 }
