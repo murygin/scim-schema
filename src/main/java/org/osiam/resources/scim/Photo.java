@@ -22,6 +22,16 @@
  */
 package org.osiam.resources.scim;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.osiam.resources.helper.DataUri;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -33,6 +43,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * </p>
  */
 public class Photo extends MultiValuedAttribute {
+
+    private static final Logger LOGGER = Logger.getLogger(Photo.class.getName());
+    
+    public static final String DATA_IMAGE = "data:image/";
+    public static final String BASE64 = ";base64,";
 
     @JsonProperty
     private Type type;
@@ -56,6 +71,15 @@ public class Photo extends MultiValuedAttribute {
     @Override
     public String getValue() {
         return super.getValue();
+    }
+    
+    public URL getValueAsUrl() {
+        try {
+            return DataUri.convertStringToUrl(super.getValue());
+        } catch (MalformedURLException e) {
+            LOGGER.log(Level.SEVERE, "Error while converting string to URL.", e);
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -158,6 +182,24 @@ public class Photo extends MultiValuedAttribute {
         public Builder setValue(String value) {
             super.setValue(value);
             return this;
+        }
+        
+        public Builder setValue(URL url) {
+            super.setValue(DataUri.convertUrlToString(url));
+            return this;
+        }
+
+        public Builder setValue(InputStream is, String mimeType) {
+            try {
+                super.setValue(DataUri.convertIsToDataUriString(is, mimeType));
+                return this;
+            } catch (IOException ioe) {
+                LOGGER.log(Level.SEVERE, "IO error while converting input stream to data uri.", ioe);
+                throw new RuntimeException(ioe);
+            } catch (URISyntaxException use) {
+                LOGGER.log(Level.SEVERE, "URI syntax error while converting input stream to data uri.", use);
+                throw new RuntimeException(use);
+            }
         }
 
         /**
